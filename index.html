@@ -446,7 +446,234 @@
             margin-top: 40px;
         }
 
-        /* ===== TABLET RESPONSIVE (max-width: 1024px) ===== */
+        /* ===== QUIZ SECTION STYLING ===== */
+        .quiz-info {
+            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+            border-left: 5px solid #667eea;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 6px;
+            font-size: 1.05em;
+            color: #333;
+        }
+
+        .quiz-question {
+            background: #f9f9f9;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+
+        .quiz-question h3 {
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .question-box {
+            background: linear-gradient(135deg, #fff8e1 0%, #ffe0b2 100%);
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 25px;
+        }
+
+        .question-box p {
+            margin: 10px 0;
+            font-size: 1.05em;
+            color: #333;
+        }
+
+        .question-box strong {
+            color: #d32f2f;
+        }
+
+        .solution-box {
+            background: white;
+            border: 2px solid #4caf50;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .solution-box h4 {
+            color: #4caf50;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #4caf50;
+            padding-bottom: 10px;
+        }
+
+        .solution-step {
+            background: #f5f5f5;
+            border-left: 4px solid #2196f3;
+            padding: 18px;
+            margin: 18px 0;
+            border-radius: 6px;
+        }
+
+        .solution-step:hover {
+            background: #eeeeee;
+            transform: translateX(5px);
+            transition: all 0.3s ease;
+        }
+
+        .step-title {
+            background: #2196f3;
+            color: white;
+            padding: 12px 15px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 1.05em;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .step-content {
+            margin-top: 15px;
+            font-size: 1em;
+            line-height: 1.8;
+        }
+
+        .step-content p {
+            margin: 12px 0;
+            color: #333;
+        }
+
+        .step-content ul {
+            margin: 15px 0 15px 30px;
+        }
+
+        .step-content li {
+            margin: 8px 0;
+            color: #333;
+        }
+
+        .solution-summary {
+            background: #e8f5e9;
+            border-left: 5px solid #4caf50;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        .solution-summary h4 {
+            color: #2e7d32;
+            margin-top: 0;
+        }
+
+        .key-insight {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border-left: 5px solid #ff9800;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        .key-insight h4 {
+            color: #e65100;
+            margin-top: 0;
+        }
+
+        .key-insight ul {
+            margin: 15px 0 0 25px;
+        }
+
+        .key-insight li {
+            margin: 10px 0;
+            color: #333;
+            font-weight: 500;
+        }
+
+        /* Mobile responsiveness for quiz sections */
+        @media (max-width: 768px) {
+            .quiz-question {
+                padding: 18px;
+                margin: 18px 0;
+            }
+
+            .question-box {
+                padding: 15px;
+                margin-bottom: 18px;
+            }
+
+            .solution-box {
+                padding: 15px;
+            }
+
+            .solution-step {
+                padding: 15px;
+                margin: 15px 0;
+            }
+
+            .step-title {
+                font-size: 0.95em;
+                padding: 10px 12px;
+            }
+
+            .step-content {
+                font-size: 0.95em;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+
+            .key-insight {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .quiz-question {
+                padding: 12px;
+                border-radius: 8px;
+            }
+
+            .question-box {
+                padding: 12px;
+                border-radius: 4px;
+            }
+
+            .solution-step {
+                padding: 12px;
+                margin: 12px 0;
+            }
+
+            .step-title {
+                font-size: 0.9em;
+                padding: 8px 10px;
+                margin-bottom: 12px;
+            }
+
+            .step-content {
+                font-size: 0.9em;
+                line-height: 1.6;
+            }
+
+            .step-content p {
+                margin: 8px 0;
+            }
+
+            .step-content ul {
+                margin: 10px 0 10px 20px;
+            }
+
+            .step-content li {
+                margin: 6px 0;
+                font-size: 0.9em;
+            }
+
+            table {
+                font-size: 0.8em;
+            }
+
+            .key-insight {
+                padding: 12px;
+            }
+        }
         @media (max-width: 1024px) {
             .container {
                 border-radius: 8px;
@@ -1023,6 +1250,8 @@
             <button class="tab-button" onclick="openTab(event, 'practice')">✏️ Practice Problems</button>
             <button class="tab-button" onclick="openTab(event, 'formulas')">⭐ Formulas</button>
             <button class="tab-button" onclick="openTab(event, 'context')">🔬 Context & Examples</button>
+            <button class="tab-button" onclick="openTab(event, 'quiz1')">📝 Quiz One</button>
+            <button class="tab-button" onclick="openTab(event, 'sessional2')">📝 Sessional 2</button>
         </div>
 
         <!-- HOME TAB -->
@@ -2841,6 +3070,493 @@ DATA TYPE?
 
             <div class="footer">
                 <p>Master these 9 formulas and their contexts, and you'll ace your exam! 📚✨</p>
+            </div>
+        </div>
+
+        <!-- QUIZ ONE TAB -->
+        <div id="quiz1" class="tab-content">
+            <h2>📝 Quiz One - Probability & Statistics Fundamentals</h2>
+            <p><strong>Chapters 1-2: Introduction to Statistics & Probability Theory</strong></p>
+            
+            <div class="quiz-info">
+                <p>📌 This quiz covers fundamental concepts from Chapters 1-2 including basic statistics, probability rules, and foundational concepts.</p>
+            </div>
+
+            <!-- QUESTION 1 -->
+            <div class="quiz-question">
+                <h3>Question 1: Probability of Compound Events</h3>
+                
+                <div class="question-box">
+                    <p><strong>📋 Problem Statement:</strong></p>
+                    <p>A deck of standard playing cards contains 52 cards. If you draw two cards without replacement, what is the probability that:</p>
+                    <p><strong>a)</strong> Both cards are hearts?<br>
+                    <strong>b)</strong> The first card is a heart AND the second card is a spade?</p>
+                </div>
+
+                <div class="solution-box">
+                    <h4>✅ Detailed Solution:</h4>
+                    
+                    <div class="solution-step">
+                        <div class="step-title">Step 1: Identify the Problem Type</div>
+                        <div class="step-content">
+                            <p><strong>📍 Chapter Reference:</strong> Chapter 2, Section 2.5 (Conditional Probability)</p>
+                            <p>This is a <strong>probability without replacement</strong> problem. We use:</p>
+                            <p>P(A and B) = P(A) × P(B|A)</p>
+                            <p><em>The probability of A and B = probability of A × probability of B given A has occurred</em></p>
+                        </div>
+                    </div>
+
+                    <div class="solution-step">
+                        <div class="step-title">Step 2: Part (a) - Both Hearts</div>
+                        <div class="step-content">
+                            <p><strong>Given Information:</strong></p>
+                            <ul>
+                                <li>Total cards: 52</li>
+                                <li>Hearts in deck: 13</li>
+                                <li>Drawing without replacement</li>
+                            </ul>
+                            
+                            <p><strong>Calculation:</strong></p>
+                            <p>P(1st heart) = 13/52 = 1/4</p>
+                            <p>P(2nd heart | 1st was heart) = 12/51</p>
+                            <p><strong>Why?</strong> After removing one heart, there are 12 hearts left out of 51 total cards</p>
+                            
+                            <p><strong>Final Answer:</strong></p>
+                            <p>P(both hearts) = (13/52) × (12/51) ≈ <strong>0.0588 or 5.88%</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="solution-step">
+                        <div class="step-title">Step 3: Part (b) - Heart Then Spade</div>
+                        <div class="step-content">
+                            <p><strong>Calculation:</strong></p>
+                            <p>P(1st heart) = 13/52 = 1/4</p>
+                            <p>P(2nd spade | 1st was heart) = 13/51</p>
+                            <p><strong>Why?</strong> After removing one heart (not a spade), all 13 spades are still in the deck with 51 total cards remaining</p>
+                            
+                            <p><strong>Final Answer:</strong></p>
+                            <p>P(heart then spade) = (13/52) × (13/51) ≈ <strong>0.0637 or 6.37%</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="key-insight">
+                        <h4>💡 Key Insight:</h4>
+                        <p>When drawing WITHOUT replacement, each draw changes the probability of future draws. This is conditional probability in action. The numerator decreases by 1 (one card removed) and denominator also decreases by 1 (total cards reduced).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- QUESTION 2 -->
+            <div class="quiz-question">
+                <h3>Question 2: Bayes' Theorem Application</h3>
+                
+                <div class="question-box">
+                    <p><strong>📋 Problem Statement:</strong></p>
+                    <p>A manufacturing plant has two machines A and B that produce widgets:</p>
+                    <ul>
+                        <li>Machine A produces 60% of widgets with 95% quality rate</li>
+                        <li>Machine B produces 40% of widgets with 98% quality rate</li>
+                    </ul>
+                    <p>A widget is selected at random and found to be defective. What is the probability it came from Machine A?</p>
+                </div>
+
+                <div class="solution-box">
+                    <h4>✅ Detailed Solution:</h4>
+                    
+                    <div class="solution-step">
+                        <div class="step-title">Step 1: Identify Bayes' Theorem Application</div>
+                        <div class="step-content">
+                            <p><strong>📍 Chapter Reference:</strong> Chapter 2, Section 2.7 (Bayes' Theorem)</p>
+                            <p>We need to find: P(Machine A | Defective)</p>
+                            <p><strong>Bayes' Formula:</strong> P(A|B) = P(B|A) × P(A) / P(B)</p>
+                        </div>
+                    </div>
+
+                    <div class="solution-step">
+                        <div class="step-title">Step 2: Organize Given Information</div>
+                        <div class="step-content">
+                            <p><strong>Prior Probabilities:</strong></p>
+                            <ul>
+                                <li>P(Machine A) = 0.60</li>
+                                <li>P(Machine B) = 0.40</li>
+                            </ul>
+                            
+                            <p><strong>Likelihood (Quality rates):</strong></p>
+                            <ul>
+                                <li>P(Good|A) = 0.95 → P(Defective|A) = <strong>0.05</strong></li>
+                                <li>P(Good|B) = 0.98 → P(Defective|B) = <strong>0.02</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="solution-step">
+                        <div class="step-title">Step 3: Calculate P(Defective) Using Law of Total Probability</div>
+                        <div class="step-content">
+                            <p><strong>Formula:</strong> P(Defective) = P(Def|A)×P(A) + P(Def|B)×P(B)</p>
+                            <p><strong>Calculation:</strong></p>
+                            <p>P(Defective) = (0.05 × 0.60) + (0.02 × 0.40)</p>
+                            <p>= 0.03 + 0.008 = <strong>0.038</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="solution-step">
+                        <div class="step-title">Step 4: Apply Bayes' Theorem</div>
+                        <div class="step-content">
+                            <p><strong>Formula:</strong> P(A|Defective) = P(Defective|A) × P(A) / P(Defective)</p>
+                            <p><strong>Calculation:</strong></p>
+                            <p>P(A|Defective) = (0.05 × 0.60) / 0.038 = 0.03 / 0.038 ≈ <strong>0.789 or 78.9%</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="key-insight">
+                        <h4>💡 Key Insight:</h4>
+                        <p>Even though Machine A has a lower quality rate (95% vs 98%), it produces MORE widgets overall (60% vs 40%). When we observe a defect, it's MORE LIKELY to have come from Machine A because it produces more widgets! This is the power of Bayes' theorem - updating our belief based on evidence.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- QUESTION 3 -->
+            <div class="quiz-question">
+                <h3>Question 3: Independence and Probability Rules</h3>
+                
+                <div class="question-box">
+                    <p><strong>📋 Problem Statement:</strong></p>
+                    <p>The probability that a student passes Statistics is 0.8. The probability that a student passes Probability is 0.7. Assuming these events are independent:</p>
+                    <p><strong>a)</strong> What is the probability of passing both courses?<br>
+                    <strong>b)</strong> What is the probability of failing both courses?<br>
+                    <strong>c)</strong> What is the probability of passing at least one course?</p>
+                </div>
+
+                <div class="solution-box">
+                    <h4>✅ Detailed Solution:</h4>
+                    
+                    <div class="solution-step">
+                        <div class="step-title">Step 1: Understand Independence</div>
+                        <div class="step-content">
+                            <p><strong>📍 Chapter Reference:</strong> Chapter 2, Section 2.5 (Independence)</p>
+                            <p>Events A and B are <strong>independent</strong> if: P(A and B) = P(A) × P(B)</p>
+                            <p><em>Passing one course doesn't affect chances of passing the other</em></p>
+                        </div>
+                    </div>
+
+                    <div class="solution-step">
+                        <div class="step-title">Step 2: Part (a) - Passing Both Courses</div>
+                        <div class="step-content">
+                            <p><strong>Given:</strong></p>
+                            <ul>
+                                <li>P(Pass Stats) = 0.8</li>
+                                <li>P(Pass Probability) = 0.7</li>
+                            </ul>
+                            
+                            <p><strong>Calculation:</strong></p>
+                            <p>P(Pass both) = 0.8 × 0.7 = <strong>0.56 or 56%</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="solution-step">
+                        <div class="step-title">Step 3: Part (b) - Failing Both Courses</div>
+                        <div class="step-content">
+                            <p><strong>First, find failure probabilities:</strong></p>
+                            <ul>
+                                <li>P(Fail Stats) = 1 - 0.8 = <strong>0.2</strong></li>
+                                <li>P(Fail Probability) = 1 - 0.7 = <strong>0.3</strong></li>
+                            </ul>
+                            
+                            <p><strong>Calculation:</strong></p>
+                            <p>P(Fail both) = 0.2 × 0.3 = <strong>0.06 or 6%</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="solution-step">
+                        <div class="step-title">Step 4: Part (c) - Passing At Least One</div>
+                        <div class="step-content">
+                            <p><strong>Method 1: Using Complement</strong></p>
+                            <p>"At least one" means complement of "failing both"</p>
+                            <p>P(At least one) = 1 - P(Fail both) = 1 - 0.06 = <strong>0.94 or 94%</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="key-insight">
+                        <h4>💡 Key Insights:</h4>
+                        <ul>
+                            <li><strong>Complement Rule:</strong> P(A<sup>c</sup>) = 1 - P(A)</li>
+                            <li><strong>"At least one":</strong> Usually easier using complement</li>
+                            <li><strong>Independence:</strong> Knowledge of one outcome doesn't change probabilities of the other</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <p>🎓 Quiz One covers foundational probability concepts from Chapters 1-2. Master these before moving to conditional probabilities!</p>
+            </div>
+        </div>
+
+        <!-- SESSIONAL 2 TAB -->
+        <div id="sessional2" class="tab-content">
+            <h2>📝 Sessional 2 - Random Variables & Expectation</h2>
+            <p><strong>Chapters 3-4: Random Variables, Expectation, and Variance</strong></p>
+            
+            <div class="quiz-info">
+                <p>📌 This quiz covers random variables, probability distributions, expected value, variance, and their applications.</p>
+            </div>
+
+            <!-- QUESTION 1 -->
+            <div class="quiz-question">
+                <h3>Question 1: Expected Value and Decision Making</h3>
+                
+                <div class="question-box">
+                    <p><strong>📋 Problem Statement:</strong></p>
+                    <p>A casino game costs $5 to play. You roll a die:</p>
+                    <ul>
+                        <li>Roll 1-2: You lose ($0 winnings)</li>
+                        <li>Roll 3-4: You win $5</li>
+                        <li>Roll 5: You win $15</li>
+                        <li>Roll 6: You win $25</li>
+                    </ul>
+                    <p><strong>Questions:</strong></p>
+                    <p><strong>a)</strong> Find the expected value of winnings<br>
+                    <strong>b)</strong> What is the expected profit/loss per game?<br>
+                    <strong>c)</strong> Should you play this game?</p>
+                </div>
+
+                <div class="solution-box">
+                    <h4>✅ Detailed Solution:</h4>
+                    
+                    <div class="solution-step">
+                        <div class="step-title">Step 1: Set Up Expected Value Formula</div>
+                        <div class="step-content">
+                            <p><strong>📍 Chapter Reference:</strong> Chapter 4, Section 4.1 (Expected Value)</p>
+                            <p><strong>Formula:</strong> E(X) = Σ [x · P(x)]</p>
+                            <p>Expected value = sum of (each outcome × its probability)</p>
+                        </div>
+                    </div>
+
+                    <div class="solution-step">
+                        <div class="step-title">Step 2: Identify Outcomes and Probabilities</div>
+                        <div class="step-content">
+                            <p><strong>Winnings Table:</strong></p>
+                            <table>
+                                <tr>
+                                    <th>Die Roll</th>
+                                    <th>Winnings (x)</th>
+                                    <th>Probability P(x)</th>
+                                    <th>x · P(x)</th>
+                                </tr>
+                                <tr>
+                                    <td>1, 2</td>
+                                    <td>$0</td>
+                                    <td>2/6 = 1/3</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>3, 4</td>
+                                    <td>$5</td>
+                                    <td>2/6 = 1/3</td>
+                                    <td>5/3</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>$15</td>
+                                    <td>1/6</td>
+                                    <td>2.5</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>$25</td>
+                                    <td>1/6</td>
+                                    <td>4.17</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="solution-step">
+                        <div class="step-title">Step 3: Part (a) - Calculate Expected Winnings</div>
+                        <div class="step-content">
+                            <p><strong>Calculation:</strong></p>
+                            <p>E(Winnings) = 0 + 5/3 + 2.5 + 25/6 ≈ <strong>$8.33</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="solution-step">
+                        <div class="step-title">Step 4: Part (b) - Expected Profit/Loss</div>
+                        <div class="step-content">
+                            <p><strong>Remember:</strong> The game costs $5 to play!</p>
+                            <p>Expected Profit = E(Winnings) - Cost = $8.33 - $5 = <strong>$3.33 profit per game</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="solution-step">
+                        <div class="step-title">Step 5: Part (c) - Decision</div>
+                        <div class="step-content">
+                            <p><strong>Analysis:</strong></p>
+                            <p>Since E(Profit) = $3.33 > $0 ✓</p>
+                            <p><strong>YES, you should play this game!</strong></p>
+                            <p>On average, you'll make $3.33 per game.</p>
+                        </div>
+                    </div>
+
+                    <div class="key-insight">
+                        <h4>💡 Key Insights:</h4>
+                        <ul>
+                            <li><strong>Expected Value:</strong> The long-run average outcome</li>
+                            <li><strong>Decision Rule:</strong> Play if E(Profit) > 0</li>
+                            <li><strong>Important:</strong> Individual games vary, but the average is positive</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- QUESTION 2 -->
+            <div class="quiz-question">
+                <h3>Question 2: Variance and Risk Assessment</h3>
+                
+                <div class="question-box">
+                    <p><strong>📋 Problem Statement:</strong></p>
+                    <p>Two investments have the following probability distributions for annual returns:</p>
+                    <p><strong>Investment A:</strong><br>
+                    • 50% chance of 10% return<br>
+                    • 50% chance of 20% return</p>
+                    
+                    <p><strong>Investment B:</strong><br>
+                    • 30% chance of -5% return<br>
+                    • 40% chance of 15% return<br>
+                    • 30% chance of 35% return</p>
+                    
+                    <p><strong>Questions:</strong></p>
+                    <p><strong>a)</strong> Calculate expected return for each investment<br>
+                    <strong>b)</strong> Calculate variance for each investment<br>
+                    <strong>c)</strong> Which is the better investment?</p>
+                </div>
+
+                <div class="solution-box">
+                    <h4>✅ Detailed Solution:</h4>
+                    
+                    <div class="solution-step">
+                        <div class="step-title">Step 1: Expected Value Formula Review</div>
+                        <div class="step-content">
+                            <p><strong>📍 Chapter Reference:</strong> Chapter 4, Sections 4.1-4.2 (Expectation & Variance)</p>
+                            <p>E(X) = Σ [x · P(x)]</p>
+                            <p>Var(X) = E(X<sup>2</sup>) - [E(X)]<sup>2</sup></p>
+                        </div>
+                    </div>
+
+                    <div class="solution-step">
+                        <div class="step-title">Step 2: Investment A - Expected Return</div>
+                        <div class="step-content">
+                            <p><strong>Calculation:</strong></p>
+                            <p>E(A) = (0.10)(0.5) + (0.20)(0.5) = 0.05 + 0.10 = <strong>0.15 or 15%</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="solution-step">
+                        <div class="step-title">Step 3: Investment B - Expected Return</div>
+                        <div class="step-content">
+                            <p><strong>Calculation:</strong></p>
+                            <p>E(B) = (-0.05)(0.3) + (0.15)(0.4) + (0.35)(0.3) = -0.015 + 0.06 + 0.105 = <strong>0.15 or 15%</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="solution-step">
+                        <div class="step-title">Step 4: Investment A - Variance</div>
+                        <div class="step-content">
+                            <p><strong>E(A<sup>2</sup>) = (0.01)(0.5) + (0.04)(0.5) = 0.025</strong></p>
+                            <p><strong>Var(A) = 0.025 - (0.15)<sup>2</sup> = 0.025 - 0.0225 = 0.0025</strong></p>
+                            <p><strong>SD(A) = √0.0025 = 0.05 or 5%</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="solution-step">
+                        <div class="step-title">Step 5: Investment B - Variance</div>
+                        <div class="step-content">
+                            <p><strong>E(B<sup>2</sup>) = (0.0025)(0.3) + (0.0225)(0.4) + (0.1225)(0.3) = 0.0465</strong></p>
+                            <p><strong>Var(B) = 0.0465 - (0.15)<sup>2</sup> = 0.0465 - 0.0225 = 0.024</strong></p>
+                            <p><strong>SD(B) = √0.024 = 0.1549 or 15.49%</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="solution-step">
+                        <div class="step-title">Step 6: Part (c) - Which is Better?</div>
+                        <div class="step-content">
+                            <p><strong>Both offer 15% expected return, but Investment A has MUCH LESS risk (5% vs 15.49% SD)</strong></p>
+                            <p><strong>Conclusion: Investment A is better!</strong> Same return, lower risk = better choice.</p>
+                        </div>
+                    </div>
+
+                    <div class="key-insight">
+                        <h4>💡 Key Insights:</h4>
+                        <ul>
+                            <li><strong>Variance measures risk:</strong> Higher variance = more unpredictable</li>
+                            <li><strong>Risk-Return Trade-off:</strong> Usually higher risk = higher return</li>
+                            <li><strong>Same expected value:</strong> Doesn't mean same choice! Risk matters too</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- QUESTION 3 -->
+            <div class="quiz-question">
+                <h3>Question 3: Linear Combinations of Random Variables</h3>
+                
+                <div class="question-box">
+                    <p><strong>📋 Problem Statement:</strong></p>
+                    <p>A portfolio: 60% Stock X, 40% Stock Y</p>
+                    <ul>
+                        <li>E(X) = 12%, Var(X) = 0.04</li>
+                        <li>E(Y) = 8%, Var(Y) = 0.01</li>
+                    </ul>
+                    <p><strong>Find:</strong> Portfolio expected return, variance, and standard deviation</p>
+                </div>
+
+                <div class="solution-box">
+                    <h4>✅ Detailed Solution:</h4>
+                    
+                    <div class="solution-step">
+                        <div class="step-title">Step 1: Linear Combination Formula</div>
+                        <div class="step-content">
+                            <p><strong>📍 Chapter Reference:</strong> Chapter 4, Section 4.3 (Linear Combinations)</p>
+                            <p><strong>Portfolio:</strong> P = 0.60X + 0.40Y</p>
+                            <p>E(aX + bY) = aE(X) + bE(Y)</p>
+                            <p>Var(aX + bY) = a<sup>2</sup>Var(X) + b<sup>2</sup>Var(Y) (if independent)</p>
+                        </div>
+                    </div>
+
+                    <div class="solution-step">
+                        <div class="step-title">Step 2: Expected Portfolio Return</div>
+                        <div class="step-content">
+                            <p>E(P) = 0.60(0.12) + 0.40(0.08) = 0.072 + 0.032 = <strong>0.104 or 10.4%</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="solution-step">
+                        <div class="step-title">Step 3: Variance of Portfolio</div>
+                        <div class="step-content">
+                            <p>Var(P) = (0.60)<sup>2</sup>(0.04) + (0.40)<sup>2</sup>(0.01)</p>
+                            <p>= (0.36)(0.04) + (0.16)(0.01) = 0.0144 + 0.0016 = <strong>0.016</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="solution-step">
+                        <div class="step-title">Step 4: Standard Deviation</div>
+                        <div class="step-content">
+                            <p>SD(P) = √0.016 = <strong>0.1265 or 12.65%</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="key-insight">
+                        <h4>💡 Key Insights:</h4>
+                        <ul>
+                            <li><strong>Diversification reduces risk:</strong> Portfolio SD (12.65%) < Stock X (20%)</li>
+                            <li><strong>Variance scales by a<sup>2</sup>:</strong> Don't forget to square the weights!</li>
+                            <li><strong>Benefit of diversity:</strong> Same return with less risk</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <p>🎓 Sessional 2 covers critical concepts: expected value, variance, and portfolio analysis!</p>
             </div>
         </div>
 
