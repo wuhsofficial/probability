@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5, user-scalable=yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Probability & Statistics Exam Study Guide</title>
     <style>
         * {
@@ -83,6 +85,8 @@
             display: none;
             padding: 40px;
             animation: fadeIn 0.3s ease-in;
+            background: white;
+            color: #333;
         }
 
         .tab-content.active {
@@ -171,23 +175,37 @@
             border-collapse: collapse;
             margin: 20px 0;
             background: white;
+            color: #333;
         }
 
         th {
-            background: #667eea;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 12px;
+            padding: 14px;
             text-align: left;
-            font-weight: 600;
+            font-weight: 700;
+            border: none;
+            font-size: 1.05em;
         }
 
         td {
-            padding: 12px;
+            padding: 14px;
             border-bottom: 1px solid #ddd;
+            color: #222;
+            font-size: 0.98em;
+            background: white;
         }
 
         tr:hover {
-            background: #f8f9fa;
+            background: #f0f3ff;
+        }
+
+        tr:nth-child(odd) {
+            background: #f9f9f9;
+        }
+
+        tr:nth-child(odd):hover {
+            background: #f0f3ff;
         }
 
         .important {
@@ -428,18 +446,73 @@
             margin-top: 40px;
         }
 
-        @media (max-width: 768px) {
+        /* ===== TABLET RESPONSIVE (max-width: 1024px) ===== */
+        @media (max-width: 1024px) {
+            .container {
+                border-radius: 8px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
             .header h1 {
-                font-size: 1.8em;
+                font-size: 2em;
+            }
+            
+            .tab-button {
+                padding: 12px 16px;
+                font-size: 0.95em;
+            }
+            
+            .tab-content {
+                padding: 25px;
+            }
+            
+            h2 {
+                font-size: 1.5em;
+            }
+            
+            h3 {
+                font-size: 1.2em;
+            }
+        }
+
+        /* ===== MOBILE RESPONSIVE (max-width: 768px) ===== */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                border-radius: 6px;
+                box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            }
+            
+            .header {
+                padding: 25px 15px;
+            }
+            
+            .header h1 {
+                font-size: 1.6em;
+                margin-bottom: 8px;
+            }
+
+            .header p {
+                font-size: 0.95em;
             }
 
             .tabs {
                 overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scroll-behavior: smooth;
             }
 
             .tab-button {
-                padding: 12px 18px;
-                font-size: 0.9em;
+                padding: 12px 14px;
+                font-size: 0.85em;
+                white-space: nowrap;
+                flex-shrink: 0;
             }
 
             .tab-content {
@@ -447,11 +520,400 @@
             }
 
             h2 {
-                font-size: 1.4em;
+                font-size: 1.3em;
+                padding-left: 10px;
+            }
+
+            h3 {
+                font-size: 1.1em;
+                margin-top: 20px;
+            }
+            
+            h4 {
+                font-size: 1em;
+                margin-top: 15px;
+            }
+
+            p {
+                font-size: 0.95em;
+                line-height: 1.6;
+                margin-bottom: 12px;
+            }
+
+            ul, ol {
+                margin-left: 20px;
+                font-size: 0.95em;
+            }
+
+            li {
+                margin-bottom: 6px;
             }
 
             .quick-nav {
                 grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .quick-nav-item {
+                padding: 12px;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+                margin: 15px 0;
+            }
+
+            .stat-box {
+                padding: 15px;
+            }
+
+            .stat-box .number {
+                font-size: 1.6em;
+            }
+
+            table {
+                font-size: 0.85em;
+                color: #333;
+            }
+
+            th, td {
+                padding: 8px 10px;
+                color: #333;
+            }
+
+            th {
+                color: white;
+            }
+
+            .distribution-card {
+                padding: 15px;
+                margin: 15px 0;
+            }
+
+            .formula-box {
+                padding: 15px;
+                margin: 12px 0;
+            }
+
+            .formula-label {
+                font-size: 0.95em;
+            }
+
+            .formula-math {
+                font-size: 0.9em;
+            }
+
+            .explanation-box {
+                padding: 15px;
+            }
+
+            .explanation-item {
+                padding: 10px;
+                margin: 10px 0;
+            }
+
+            .explanation-item .term {
+                font-size: 0.95em;
+            }
+
+            .explanation-item .meaning {
+                font-size: 0.9em;
+            }
+
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 1.2em;
+            }
+
+            .success, .info, .footer {
+                padding: 15px;
+                font-size: 0.9em;
+            }
+        }
+
+        /* ===== SMALL MOBILE RESPONSIVE (max-width: 480px) ===== */
+        @media (max-width: 480px) {
+            body {
+                padding: 8px;
+            }
+
+            .container {
+                border-radius: 4px;
+            }
+
+            .header {
+                padding: 20px 12px;
+            }
+
+            .header h1 {
+                font-size: 1.4em;
+                margin-bottom: 5px;
+            }
+
+            .header p {
+                font-size: 0.85em;
+            }
+
+            .tabs {
+                flex-wrap: wrap;
+            }
+
+            .tab-button {
+                padding: 10px 12px;
+                font-size: 0.75em;
+                flex: 1 1 auto;
+                min-width: 80px;
+                margin-bottom: -2px;
+            }
+
+            .tab-content {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.3em;
+            }
+
+            h2 {
+                font-size: 1.1em;
+                padding-left: 8px;
+                margin-top: 18px;
+            }
+
+            h3 {
+                font-size: 1em;
+                margin-top: 15px;
+                margin-bottom: 10px;
+            }
+
+            h4 {
+                font-size: 0.95em;
+                margin-top: 12px;
+            }
+
+            p {
+                font-size: 0.9em;
+                line-height: 1.5;
+                margin-bottom: 10px;
+            }
+
+            ul, ol {
+                margin-left: 15px;
+                font-size: 0.9em;
+                padding-left: 0;
+            }
+
+            li {
+                margin-bottom: 5px;
+            }
+
+            code {
+                font-size: 0.8em;
+                padding: 2px 4px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+                gap: 10px;
+                margin: 12px 0;
+            }
+
+            .stat-box {
+                padding: 12px;
+            }
+
+            .stat-box .number {
+                font-size: 1.4em;
+            }
+
+            .stat-box .label {
+                font-size: 0.8em;
+            }
+
+            table {
+                font-size: 0.8em;
+                overflow-x: auto;
+                display: block;
+                width: 100%;
+                color: #333;
+            }
+
+            thead {
+                display: none;
+            }
+
+            tr {
+                display: block;
+                margin-bottom: 15px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                padding: 10px;
+                background: white;
+            }
+
+            td {
+                display: block;
+                padding: 8px 0;
+                text-align: right;
+                position: relative;
+                padding-left: 50%;
+                color: #333;
+            }
+
+            td:before {
+                content: attr(data-label);
+                position: absolute;
+                left: 6px;
+                font-weight: bold;
+                text-align: left;
+                color: #333;
+            }
+
+            .distribution-card {
+                padding: 12px;
+                margin: 12px 0;
+                border-radius: 6px;
+            }
+
+            .formula-box {
+                padding: 12px;
+                margin: 10px 0;
+                border-radius: 6px;
+            }
+
+            .formula-label {
+                font-size: 0.9em;
+                margin-top: 10px;
+                margin-bottom: 6px;
+            }
+
+            .formula-line {
+                padding: 8px 10px;
+                margin: 8px 0;
+            }
+
+            .formula-math {
+                font-size: 0.85em;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .formula-desc {
+                font-size: 0.8em;
+            }
+
+            .fraction {
+                display: inline-block;
+                vertical-align: middle;
+                margin: 0 2px;
+            }
+
+            .fraction .numerator {
+                font-size: 0.8em;
+                padding: 2px 4px;
+            }
+
+            .fraction .denominator {
+                font-size: 0.8em;
+                padding: 2px 4px;
+            }
+
+            .explanation-box {
+                padding: 12px;
+                margin: 12px 0;
+            }
+
+            .explanation-item {
+                padding: 8px 10px;
+                margin: 8px 0;
+            }
+
+            .explanation-item .term {
+                font-size: 0.9em;
+            }
+
+            .explanation-item .meaning {
+                font-size: 0.8em;
+                margin-top: 4px;
+            }
+
+            .explanation-item .usage {
+                font-size: 0.75em;
+                margin-top: 3px;
+            }
+
+            .info {
+                padding: 12px;
+                font-size: 0.85em;
+            }
+
+            .info ol {
+                margin-left: 15px;
+                padding-left: 0;
+            }
+
+            .success {
+                padding: 12px;
+                font-size: 0.85em;
+            }
+
+            .footer {
+                padding: 12px;
+                font-size: 0.85em;
+            }
+
+            .back-to-top {
+                bottom: 15px;
+                right: 15px;
+                width: 40px;
+                height: 40px;
+                font-size: 1em;
+            }
+
+            /* Improve scrolling experience */
+            .tab-button:focus {
+                outline: 2px solid #667eea;
+                outline-offset: 2px;
+            }
+
+            /* Better button touch targets */
+            button {
+                min-height: 44px;
+                min-width: 44px;
+            }
+        }
+
+        /* ===== EXTRA SMALL DEVICES (max-width: 360px) ===== */
+        @media (max-width: 360px) {
+            .header h1 {
+                font-size: 1.2em;
+            }
+
+            .tab-button {
+                padding: 8px 10px;
+                font-size: 0.7em;
+                min-width: 70px;
+            }
+
+            .tab-content {
+                padding: 12px;
+            }
+
+            h2 {
+                font-size: 1em;
+                margin-top: 15px;
+            }
+
+            h3 {
+                font-size: 0.95em;
+            }
+
+            p, li {
+                font-size: 0.85em;
             }
         }
 
@@ -470,6 +932,10 @@
             cursor: pointer;
             transition: all 0.3s;
             box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+            z-index: 99;
+            border: none;
+            font-size: 1.4em;
+            font-weight: bold;
         }
 
         .back-to-top:hover {
@@ -477,8 +943,42 @@
             transform: translateY(-5px);
         }
 
+        .back-to-top:active {
+            transform: translateY(-3px);
+        }
+
         .back-to-top.show {
             display: flex;
+        }
+
+        /* ===== TOUCH-FRIENDLY IMPROVEMENTS ===== */
+        @supports (padding: max(0px)) {
+            .back-to-top {
+                bottom: max(20px, env(safe-area-inset-bottom));
+                right: max(20px, env(safe-area-inset-right));
+            }
+        }
+
+        button {
+            -webkit-user-select: none;
+            user-select: none;
+            -webkit-touch-callout: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Improve touch targets */
+        .tab-button {
+            touch-action: manipulation;
+        }
+
+        /* Better scrolling performance */
+        .tabs {
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+        }
+
+        .tab-button {
+            scroll-snap-align: start;
         }
 
         .stats {
@@ -1686,28 +2186,28 @@ DATA TYPE?
             <h3>🎯 Common Formula Mistakes</h3>
             <table>
                 <tr>
-                    <th>❌ WRONG</th>
-                    <th>✅ CORRECT</th>
+                    <th style="text-align: center; background: linear-gradient(135deg, #f44336 0%, #c62828 100%);">❌ WRONG</th>
+                    <th style="text-align: center; background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);">✅ CORRECT</th>
                 </tr>
                 <tr>
-                    <td>Var(2X) = 2Var(X)</td>
-                    <td>Var(2X) = 4Var(X) = 2²Var(X)</td>
+                    <td><strong>Var(2X) = 2Var(X)</strong></td>
+                    <td><strong>Var(2X) = 4Var(X) = 2<sup>2</sup>Var(X)</strong></td>
                 </tr>
                 <tr>
-                    <td>Z = (μ - X)/σ</td>
-                    <td>Z = (X - μ)/σ</td>
+                    <td><strong>Z = (μ - X)/σ</strong></td>
+                    <td><strong>Z = (X - μ)/σ</strong></td>
                 </tr>
                 <tr>
-                    <td>P(A|B) = P(A)P(B|A)</td>
-                    <td>P(A|B) = P(B|A)P(A) / P(B)</td>
+                    <td><strong>P(A|B) = P(A)P(B|A)</strong></td>
+                    <td><strong>P(A|B) = <span class="fraction"><span class="numerator">P(B|A)P(A)</span><span class="denominator">P(B)</span></span></strong></td>
                 </tr>
                 <tr>
-                    <td>Normal: (x-μ)²/(2σ)</td>
-                    <td>Normal: (x-μ)²/(2σ²)</td>
+                    <td><strong>Normal: (x-μ)<sup>2</sup>/(2σ)</strong></td>
+                    <td><strong>Normal: (x-μ)<sup>2</sup>/(2σ<sup>2</sup>)</strong></td>
                 </tr>
                 <tr>
-                    <td>b₀ = ȳ + b₁x̄</td>
-                    <td>b₀ = ȳ - b₁x̄</td>
+                    <td><strong>b₀ = ȳ + b₁x̄</strong></td>
+                    <td><strong>b₀ = ȳ - b₁x̄</strong></td>
                 </tr>
             </table>
 
