@@ -1,0 +1,2400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Probability & Statistics Exam Study Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        .tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 2px solid #e9ecef;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .tab-button {
+            padding: 15px 25px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 500;
+            color: #666;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+        }
+
+        .tab-button:hover {
+            background: #e9ecef;
+            color: #667eea;
+        }
+
+        .tab-button.active {
+            color: #667eea;
+            border-bottom-color: #667eea;
+            background: white;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 40px;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-left: 4px solid #667eea;
+            padding-left: 15px;
+            font-size: 1.8em;
+        }
+
+        h3 {
+            color: #764ba2;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-size: 1.3em;
+        }
+
+        h4 {
+            color: #667eea;
+            margin-top: 18px;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        p {
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        ul, ol {
+            margin-left: 25px;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        li {
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #d63384;
+        }
+
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        pre code {
+            background: none;
+            color: #f8f8f2;
+            padding: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        .important {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .important strong {
+            color: #856404;
+        }
+
+        .success {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .info {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .warning {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .checklist {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .checklist li {
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .checklist li:before {
+            content: "☐";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .search-box {
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 6px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .quick-nav {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .quick-nav-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+        }
+
+        .quick-nav-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .quick-nav-item h3 {
+            color: white;
+            margin-top: 0;
+            border-left: none;
+            padding-left: 0;
+        }
+
+        .formula-box {
+            background: linear-gradient(135deg, #f5f7ff 0%, #f0f3ff 100%);
+            border: 2px solid #667eea;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 2.4;
+        }
+
+        .formula-box .formula-line {
+            margin: 15px 0;
+            padding: 12px 15px;
+            background: white;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+            font-size: 1.05em;
+        }
+
+        .formula-box .formula-label {
+            color: #667eea;
+            font-weight: 700;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+
+        .formula-box .formula-math {
+            color: #333;
+            font-size: 1.08em;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        .formula-box .formula-desc {
+            color: #555;
+            font-size: 0.96em;
+            margin-top: 6px;
+            font-style: italic;
+            color: #666;
+        }
+
+        /* Proper Fraction Display */
+        .fraction {
+            display: inline-block;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        .fraction .numerator {
+            display: block;
+            border-bottom: 2px solid #333;
+            padding-bottom: 2px;
+            padding-right: 4px;
+            padding-left: 4px;
+        }
+
+        .fraction .denominator {
+            display: block;
+            padding-top: 2px;
+            padding-right: 4px;
+            padding-left: 4px;
+        }
+
+        .explanation-box {
+            background: linear-gradient(135deg, #e7f3ff 0%, #f0f8ff 100%);
+            border: 2px solid #2196F3;
+            border-left: 5px solid #2196F3;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .explanation-box h4 {
+            color: #2196F3;
+            margin-top: 0;
+        }
+
+        .explanation-item {
+            margin: 15px 0;
+            padding: 12px;
+            background: white;
+            border-radius: 5px;
+            border-left: 3px solid #2196F3;
+        }
+
+        .explanation-item .term {
+            color: #2196F3;
+            font-weight: 700;
+            font-size: 1.05em;
+        }
+
+        .explanation-item .meaning {
+            color: #333;
+            margin-top: 5px;
+            font-size: 0.98em;
+        }
+
+        .explanation-item .usage {
+            color: #666;
+            margin-top: 5px;
+            font-size: 0.92em;
+            font-style: italic;
+        }
+
+        .distribution-card {
+            background: white;
+            border: 2px solid #ddd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 5px solid #667eea;
+        }
+
+        .distribution-card h4 {
+            color: #667eea;
+            margin-top: 0;
+        }
+
+        .key-point {
+            background: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #e9ecef;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .tabs {
+                overflow-x: auto;
+            }
+
+            .tab-button {
+                padding: 12px 18px;
+                font-size: 0.9em;
+            }
+
+            .tab-content {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+
+            .quick-nav {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #667eea;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .back-to-top:hover {
+            background: #764ba2;
+            transform: translateY(-5px);
+        }
+
+        .back-to-top.show {
+            display: flex;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minsize(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-box .number {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .stat-box .label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 Probability & Statistics Exam Study Guide</h1>
+            <p>Complete Preparation for Probability and Random Processes Course</p>
+        </div>
+
+        <div class="tabs">
+            <button class="tab-button active" onclick="openTab(event, 'home')">🏠 Home</button>
+            <button class="tab-button" onclick="openTab(event, 'roadmap')">📋 Study Roadmap</button>
+            <button class="tab-button" onclick="openTab(event, 'guide')">📖 Study Guide</button>
+            <button class="tab-button" onclick="openTab(event, 'distributions')">🎯 Distributions</button>
+            <button class="tab-button" onclick="openTab(event, 'practice')">✏️ Practice Problems</button>
+            <button class="tab-button" onclick="openTab(event, 'formulas')">⭐ Formulas</button>
+            <button class="tab-button" onclick="openTab(event, 'context')">🔬 Context & Examples</button>
+        </div>
+
+        <!-- HOME TAB -->
+        <div id="home" class="tab-content active">
+            <div class="quick-nav">
+                <div class="quick-nav-item" onclick="openTab(null, 'roadmap')">
+                    <h3>📅 Study Schedule</h3>
+                    <p>4-week, 2-week, and 1-week preparation plans</p>
+                </div>
+                <div class="quick-nav-item" onclick="openTab(null, 'guide')">
+                    <h3>📚 Complete Guide</h3>
+                    <p>Chapter-by-chapter syllabus breakdown</p>
+                </div>
+                <div class="quick-nav-item" onclick="openTab(null, 'distributions')">
+                    <h3>🎯 13 Distributions</h3>
+                    <p>When to use and quick reference cards</p>
+                </div>
+                <div class="quick-nav-item" onclick="openTab(null, 'practice')">
+                    <h3>💡 13 Practice Problems</h3>
+                    <p>Worked examples with solution strategies</p>
+                </div>
+                <div class="quick-nav-item" onclick="openTab(null, 'formulas')">
+                    <h3>✅ Memorization Guide</h3>
+                    <p>What to memorize vs. what's provided</p>
+                </div>
+            </div>
+
+            <h2>Welcome to Your Study Portal!</h2>
+            <p>You have received a comprehensive exam preparation package containing 5 complete study documents. This interactive HTML guide consolidates everything into one easy-to-navigate resource.</p>
+
+            <div class="stats">
+                <div class="stat-box">
+                    <div class="number">13</div>
+                    <div class="label">Distributions</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">13</div>
+                    <div class="label">Practice Problems</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">40-50</div>
+                    <div class="label">Study Hours</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">100%</div>
+                    <div class="label">Coverage</div>
+                </div>
+            </div>
+
+            <h2>📌 Quick Start Guide</h2>
+            <ol>
+                <li><strong>First Time?</strong> Go to <strong>📋 Study Roadmap</strong> to pick your timeline</li>
+                <li><strong>Learning Concepts?</strong> Use <strong>📖 Study Guide</strong> for chapter breakdowns</li>
+                <li><strong>Recognizing Distributions?</strong> Check <strong>🎯 Distributions</strong> tab</li>
+                <li><strong>Practicing?</strong> Work through <strong>✏️ Practice Problems</strong></li>
+                <li><strong>Memorizing?</strong> Review <strong>⭐ Formulas</strong> guide</li>
+            </ol>
+
+            <h2>🎯 Exam Coverage</h2>
+            <table>
+                <tr>
+                    <th>Exam Section</th>
+                    <th>Chapters</th>
+                    <th>Topics</th>
+                </tr>
+                <tr>
+                    <td><strong>Sessional 1</strong></td>
+                    <td>1-2</td>
+                    <td>Statistics, Probability, Bayes' Theorem</td>
+                </tr>
+                <tr>
+                    <td><strong>Sessional 2</strong></td>
+                    <td>3-4</td>
+                    <td>Random Variables, Expectation, Variance</td>
+                </tr>
+                <tr>
+                    <td><strong>Final Portion</strong></td>
+                    <td>5, 6, 11</td>
+                    <td>Distributions, Regression</td>
+                </tr>
+            </table>
+
+            <h2>💡 Key Principles</h2>
+            <div class="info">
+                <strong>Remember these exam principles:</strong>
+                <ul>
+                    <li>Focus on <strong>understanding scenarios</strong> - Can you identify which distribution?</li>
+                    <li>The exam is about <strong>concept application</strong>, not formula memorization</li>
+                    <li>Concepts are <strong>interconnected</strong> - Review the complete course</li>
+                    <li>Always show your <strong>reasoning and work</strong> for partial credit</li>
+                    <li>Scenario recognition is <strong>80% of the battle</strong></li>
+                </ul>
+            </div>
+
+            <h2>📊 What Will Be Provided During Exam</h2>
+            <div class="success">
+                ✓ Z-tables (standard normal)<br>
+                ✓ Chi-square distribution values<br>
+                ✓ Formulas for gamma, beta, lognormal distributions<br>
+                ✓ Other distribution tables as needed
+            </div>
+
+            <h2>⭐ What You MUST Memorize</h2>
+            <div class="important">
+                ⭐⭐⭐ <strong>Critical - Must Memorize:</strong>
+                <ul>
+                    <li>Normal distribution formula and empirical rule</li>
+                    <li>Bayes' theorem</li>
+                    <li>Poisson distribution formula</li>
+                    <li>Exponential distribution formula</li>
+                    <li>Weibull distribution formula</li>
+                    <li>Binomial distribution formula</li>
+                    <li>Conditional probability formula</li>
+                    <li>Least squares regression formulas</li>
+                </ul>
+            </div>
+
+            <div class="footer">
+                <p>Last Updated: May 29, 2026 | Complete Probability & Statistics Study Guide</p>
+                <p>Use the tabs above to navigate through different sections of your study material</p>
+            </div>
+        </div>
+
+        <!-- ROADMAP TAB -->
+        <div id="roadmap" class="tab-content">
+            <h2>📅 Study Schedule & Roadmap</h2>
+            
+            <h3>Choose Your Timeline</h3>
+            <p>Select based on how much time you have before your exam:</p>
+
+            <div class="stats">
+                <div class="stat-box" onclick="alert('Follow the 4-week plan for comprehensive preparation')">
+                    <div class="number">4 Week</div>
+                    <div class="label">Optimal</div>
+                </div>
+                <div class="stat-box" onclick="alert('Intensive focus on key topics')">
+                    <div class="number">2 Week</div>
+                    <div class="label">Intensive</div>
+                </div>
+                <div class="stat-box" onclick="alert('Minimum coverage - focus on high-priority items')">
+                    <div class="number">1 Week</div>
+                    <div class="label">Minimum</div>
+                </div>
+            </div>
+
+            <h3>⏰ 4-WEEK OPTIMAL SCHEDULE</h3>
+            
+            <div class="distribution-card">
+                <h4>Week 1: Foundation & Concepts</h4>
+                <p><strong>Days 1-2 (2-3 hours):</strong> Review exam requirements and syllabus</p>
+                <p><strong>Days 3-5 (8-10 hours):</strong> Probability fundamentals (Chapter 1-2)</p>
+                <ul>
+                    <li>Focus on conditional probability</li>
+                    <li>Master Bayes' theorem</li>
+                    <li>Complete 5+ textbook problems</li>
+                </ul>
+            </div>
+
+            <div class="distribution-card">
+                <h4>Week 2: Random Variables & Expectation</h4>
+                <p><strong>Days 6-7 (6-8 hours):</strong> Random Variables (Chapter 3)</p>
+                <p><strong>Days 8-10 (10-12 hours):</strong> Expectation & Variance (Chapter 4)</p>
+                <ul>
+                    <li>Master E(X) and Var(X) calculations</li>
+                    <li>Understand linear combinations</li>
+                    <li>Focus on Section 4.3 (critical for later)</li>
+                </ul>
+            </div>
+
+            <div class="distribution-card">
+                <h4>Week 3: Distributions</h4>
+                <p><strong>Days 11-13 (12-15 hours):</strong> Discrete Distributions (Chapter 5)</p>
+                <ul>
+                    <li>Binomial - know when to use</li>
+                    <li>Poisson ⭐⭐ - appears frequently</li>
+                    <li>Hypergeometric - distinguish from binomial</li>
+                </ul>
+                <p><strong>Days 14-17 (15-18 hours):</strong> Continuous Distributions (Chapter 6)</p>
+                <ul>
+                    <li>Normal ⭐⭐⭐ - CRITICAL</li>
+                    <li>Exponential - memoryless property</li>
+                    <li>Weibull ⭐ - reliability problems</li>
+                </ul>
+                <p><strong>Days 18-19 (5-6 hours):</strong> Special topics and approximations</p>
+            </div>
+
+            <div class="distribution-card">
+                <h4>Week 4: Regression, Integration & Practice</h4>
+                <p><strong>Days 20-21 (6-8 hours):</strong> Linear Regression (Chapter 11)</p>
+                <p><strong>Days 22-25 (15-18 hours):</strong> Full practice and weak area review</p>
+                <ul>
+                    <li>Day 22: Concept integration practice</li>
+                    <li>Day 23: Full practice exam 1 (60-90 min)</li>
+                    <li>Day 24: Weak area review</li>
+                    <li>Day 25: Full practice exam 2 (90-120 min)</li>
+                </ul>
+            </div>
+
+            <h3>📊 Intensive 2-WEEK Schedule</h3>
+            <p><strong>Week 1 (40-50 hours):</strong> Fast-track through all chapters</p>
+            <p><strong>Week 2 (20-25 hours):</strong> Intensive practice and weak area fixing</p>
+
+            <h3>🚀 Minimal 1-WEEK Schedule</h3>
+            <p><strong>Priority 1 (3 days):</strong> Bayes, Normal, Poisson, Binomial, Regression</p>
+            <p><strong>Priority 2 (2 days):</strong> Exponential, Weibull, other distributions</p>
+            <p><strong>Priority 3 (2 days):</strong> Practice and formula memorization</p>
+
+            <h3>📋 Daily Study Routine</h3>
+            <div class="info">
+                <strong>Morning Session (60-90 min):</strong>
+                <ul>
+                    <li>Review flashcards (10 min)</li>
+                    <li>Read new concept (40 min)</li>
+                    <li>Work one example (10-20 min)</li>
+                </ul>
+                <strong>Afternoon Session (90-120 min):</strong>
+                <ul>
+                    <li>Do 3-5 practice problems (60 min)</li>
+                    <li>Update flashcards (20 min)</li>
+                    <li>Review and reflect (10 min)</li>
+                </ul>
+                <strong>Evening Session (30-60 min, optional):</strong>
+                <ul>
+                    <li>Light review or extra practice</li>
+                </ul>
+            </div>
+
+            <h3>🎯 Exam Week Preparation</h3>
+            <table>
+                <tr>
+                    <th>Days Before Exam</th>
+                    <th>Activities</th>
+                </tr>
+                <tr>
+                    <td><strong>5 days</strong></td>
+                    <td>Review all formulas, identify weak areas, light practice only</td>
+                </tr>
+                <tr>
+                    <td><strong>3 days</strong></td>
+                    <td>One full practice exam, review solutions, consolidation only</td>
+                </tr>
+                <tr>
+                    <td><strong>2 days</strong></td>
+                    <td>Light review (30 min), short practice set, adequate rest</td>
+                </tr>
+                <tr>
+                    <td><strong>1 day</strong></td>
+                    <td>Very light review (30 min max), prepare materials, sleep well</td>
+                </tr>
+            </table>
+
+            <h3>✅ Final Checklist: 24 Hours Before Exam</h3>
+            <ul class="checklist">
+                <li>Can I write normal distribution formula?</li>
+                <li>Can I state Bayes' theorem?</li>
+                <li>Can I write Poisson PMF?</li>
+                <li>Can I write Weibull PDF?</li>
+                <li>Can I identify binomial vs. hypergeometric?</li>
+                <li>Can I identify Poisson scenarios?</li>
+                <li>Can I perform Z-score calculation?</li>
+                <li>Can I write least squares regression formulas?</li>
+                <li>Do I have calculator and ID ready?</li>
+                <li>Am I getting adequate sleep?</li>
+            </ul>
+
+            <div class="success">
+                <strong>🎯 You've prepared thoroughly. Trust your preparation on exam day!</strong>
+            </div>
+        </div>
+
+        <!-- GUIDE TAB -->
+        <div id="guide" class="tab-content">
+            <h2>📖 Complete Probability & Statistics Study Guide</h2>
+
+            <h3>Exam Structure</h3>
+            <table>
+                <tr>
+                    <th>Exam Component</th>
+                    <th>Chapters</th>
+                    <th>Content</th>
+                </tr>
+                <tr>
+                    <td><strong>Sessional 1</strong></td>
+                    <td>1, 2</td>
+                    <td>Statistics & Probability Fundamentals</td>
+                </tr>
+                <tr>
+                    <td><strong>Sessional 2</strong></td>
+                    <td>3, 4</td>
+                    <td>Random Variables & Expectation (up to Section 4.3)</td>
+                </tr>
+                <tr>
+                    <td><strong>Final Portion</strong></td>
+                    <td>5, 6, 11</td>
+                    <td>Distributions & Linear Regression Basics</td>
+                </tr>
+            </table>
+
+            <h3>Key Philosophy From Your Professor</h3>
+            <div class="important">
+                The exam focuses on:
+                <ul>
+                    <li>✓ <strong>Understanding scenarios</strong> - Not memorizing formulas</li>
+                    <li>✓ <strong>Identifying the correct method</strong> - Which distribution applies?</li>
+                    <li>✓ <strong>Applying concepts properly</strong> - Execute the solution</li>
+                </ul>
+            </div>
+
+            <h3>Important Notes</h3>
+            <div class="warning">
+                <strong>⚠️ Concepts are interconnected!</strong> For example, a Poisson or exponential distribution question may also require Bayes' theorem, joint probability, or conditional probability from earlier chapters. <strong>You must revise the complete course.</strong>
+            </div>
+
+            <h2>Chapter 1: Introduction to Statistics and Data Analysis</h2>
+            <div class="distribution-card">
+                <h4>Topics Covered:</h4>
+                <ul>
+                    <li>Statistical inference and sampling</li>
+                    <li>Measures of location (mean, median)</li>
+                    <li>Measures of variability (variance, standard deviation)</li>
+                    <li>Discrete vs. continuous data</li>
+                    <li>Types of statistical studies</li>
+                </ul>
+                <h4>Skills to Develop:</h4>
+                <ul>
+                    <li>Calculate descriptive statistics</li>
+                    <li>Distinguish populations from samples</li>
+                    <li>Understand experimental design</li>
+                </ul>
+            </div>
+
+            <h2>Chapter 2: Probability</h2>
+            <div class="distribution-card">
+                <h4>Critical Topics: ⭐⭐⭐</h4>
+                <ul>
+                    <li><strong>Sample Space and Events</strong> - Foundation for all probability</li>
+                    <li><strong>Conditional Probability</strong> - P(A|B) = P(A∩B)/P(B)</li>
+                    <li><strong>Bayes' Theorem</strong> - Most important for this course</li>
+                    <li><strong>Independence</strong> - P(A∩B) = P(A)×P(B) if independent</li>
+                    <li><strong>Product Rule</strong> - For sequential events</li>
+                    <li><strong>Additive Rules</strong> - For combined events</li>
+                </ul>
+                <h4>Must Know:</h4>
+                <p>Bayes' theorem appears throughout the course in many applications. Master it completely.</p>
+            </div>
+
+            <h2>Chapter 3: Random Variables & Probability Distributions</h2>
+            <div class="distribution-card">
+                <h4>Key Topics:</h4>
+                <ul>
+                    <li><strong>Discrete vs. Continuous</strong> - Know the difference</li>
+                    <li><strong>PDFs & PMFs</strong> - Probability density and mass functions</li>
+                    <li><strong>Cumulative Distribution Function (CDF)</strong></li>
+                    <li><strong>Joint Probability Distributions</strong> ⭐ - Very important</li>
+                    <li><strong>Marginal & Conditional Distributions</strong></li>
+                    <li><strong>Independence of Random Variables</strong></li>
+                </ul>
+            </div>
+
+            <h2>Chapter 4: Mathematical Expectation</h2>
+            <div class="distribution-card">
+                <h4>Topics (Up to Section 4.3 for Sessional 2):</h4>
+                <ul>
+                    <li><strong>Expected Value E(X)</strong> - For discrete and continuous</li>
+                    <li><strong>Variance Var(X) = E(X²) - [E(X)]²</strong></li>
+                    <li><strong>Standard Deviation</strong></li>
+                    <li><strong>Linear Combinations of Random Variables</strong> ⭐⭐</li>
+                </ul>
+                <div class="key-point">
+                    <strong>Critical Formula:</strong> If Y = aX + b, then:
+                    <ul>
+                        <li>E(Y) = aE(X) + b</li>
+                        <li>Var(Y) = a²Var(X)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2>Chapter 5: Discrete Probability Distributions</h2>
+            <div class="distribution-card">
+                <h4>Binomial Distribution</h4>
+                <ul>
+                    <li>When: n independent trials, two outcomes, constant p</li>
+                    <li>Formula: P(X=x) = C(n,x) × p<sup>x</sup> × (1-p)<sup>(n-x)</sup></li>
+                    <li>Mean: μ = np, Variance: σ² = np(1-p)</li>
+                </ul>
+            </div>
+
+            <div class="distribution-card">
+                <h4>Poisson Distribution ⭐⭐</h4>
+                <ul>
+                    <li>When: Rare events, constant rate λ, independent</li>
+                    <li>Formula: P(X=x) = (e<sup>-λ</sup> × λ<sup>x</sup>) / x!</li>
+                    <li><strong>Critical:</strong> Mean = Variance = λ</li>
+                </ul>
+            </div>
+
+            <div class="distribution-card">
+                <h4>Other Discrete Distributions</h4>
+                <ul>
+                    <li><strong>Geometric:</strong> Trials until first success</li>
+                    <li><strong>Negative Binomial:</strong> Trials until rth success</li>
+                    <li><strong>Hypergeometric:</strong> Sampling without replacement (NOT binomial)</li>
+                </ul>
+            </div>
+
+            <h2>Chapter 6: Continuous Probability Distributions</h2>
+            
+            <div class="distribution-card">
+                <h4>Normal Distribution ⭐⭐⭐</h4>
+                <ul>
+                    <li><strong>MUST MEMORIZE</strong> the PDF formula</li>
+                    <li>Properties: Bell-shaped, symmetric, inflection points at μ±σ</li>
+                    <li><strong>Empirical Rule:</strong> 68% within μ±σ, 95% within μ±2σ, 99.7% within μ±3σ</li>
+                    <li>Z-score: Z = (X - μ)/σ</li>
+                    <li>Tables will be provided (Z-tables)</li>
+                </ul>
+            </div>
+
+            <div class="distribution-card">
+                <h4>Exponential Distribution</h4>
+                <ul>
+                    <li>When: Time until first event, waiting times</li>
+                    <li>Formula: f(x) = λe<sup>-λx</sup></li>
+                    <li><strong>Memoryless Property:</strong> P(X > s+t | X > s) = P(X > t)</li>
+                    <li>Mean: μ = 1/λ, Variance: σ² = 1/λ²</li>
+                </ul>
+            </div>
+
+            <div class="distribution-card">
+                <h4>Weibull Distribution ⭐</h4>
+                <ul>
+                    <li><strong>MUST MEMORIZE</strong> formulas</li>
+                    <li>When: Failure/reliability analysis, lifetime data</li>
+                    <li>Extremely flexible (includes exponential as special case)</li>
+                    <li>Parameters: α (shape), β (scale)</li>
+                </ul>
+            </div>
+
+            <div class="distribution-card">
+                <h4>Other Continuous Distributions</h4>
+                <ul>
+                    <li><strong>Gamma:</strong> Time until kth event</li>
+                    <li><strong>Chi-square:</strong> Variance testing, goodness-of-fit</li>
+                    <li><strong>Beta:</strong> Proportions on [0,1] interval</li>
+                    <li><strong>Lognormal:</strong> Right-skewed positive data</li>
+                    <li><strong>Uniform:</strong> Equal likelihood over interval</li>
+                </ul>
+                <p><em>Formulas for gamma, beta, lognormal, and chi-square will be provided</em></p>
+            </div>
+
+            <h2>Chapter 11: Simple Linear Regression (Sections 11.1-11.3)</h2>
+            <div class="distribution-card">
+                <h4>Linear Regression Model</h4>
+                <ul>
+                    <li>Model: Y = β₀ + β₁X + ε</li>
+                    <li>β₀: Y-intercept, β₁: Slope</li>
+                    <li>Assumptions: Independent errors, normally distributed, constant variance</li>
+                </ul>
+                
+                <h4>Least Squares Estimation</h4>
+                <ul>
+                    <li>b₁ = [Σxy - n(x̄)(ȳ)] / [Σx² - n(x̄)²]</li>
+                    <li>b₀ = ȳ - b₁x̄</li>
+                    <li>Fitted line: ŷ = b₀ + b₁x</li>
+                </ul>
+
+                <h4>Interpretation</h4>
+                <ul>
+                    <li>Slope: Change in Y per unit change in X</li>
+                    <li>Intercept: Y value when X = 0</li>
+                    <li>Residuals: eᵢ = yᵢ - ŷᵢ (actual - predicted)</li>
+                </ul>
+            </div>
+
+            <h3>Concept Integration</h3>
+            <div class="info">
+                <strong>How concepts connect:</strong>
+                <ul>
+                    <li>Probability (Ch 2) → All distributions (Ch 5-6)</li>
+                    <li>Expected Value (Ch 4) → Linear Regression (Ch 11)</li>
+                    <li>Conditional Probability (Ch 2) → Joint Distributions (Ch 3)</li>
+                    <li>Bayes' Theorem (Ch 2) → Distribution selection in real scenarios</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- DISTRIBUTIONS TAB -->
+        <div id="distributions" class="tab-content">
+            <h2>🎯 Probability Distributions Quick Reference</h2>
+
+            <h3>13 Major Distributions You Need to Know</h3>
+            
+            <div class="distribution-card">
+                <h4>1️⃣ BINOMIAL DISTRIBUTION</h4>
+                <p><strong>When:</strong> Fixed n trials, 2 outcomes per trial, constant p, want number of successes</p>
+                <p><strong>Formula:</strong> P(X = x) = C(n,x) × p<sup>x</sup> × (1-p)<sup>(n-x)</sup></p>
+                <p><strong>Mean & Variance:</strong> μ = np, σ² = np(1-p)</p>
+                <p><strong>Scenarios:</strong> Quality control, survey sampling, yes/no outcomes</p>
+                <p><strong>Must Memorize?</strong> YES</p>
+            </div>
+
+            <div class="distribution-card">
+                <h4>2️⃣ POISSON DISTRIBUTION ⭐⭐</h4>
+                <p><strong>When:</strong> Events occur independently at constant rate λ, rare events</p>
+                <p><strong>Formula:</strong> P(X = x) = (e<sup>-λ</sup> × λ<sup>x</sup>) / x!</p>
+                <p><strong>CRITICAL:</strong> μ = σ² = λ (mean equals variance!)</p>
+                <p><strong>Scenarios:</strong> Defects per unit, arrivals per time period, rare events</p>
+                <p><strong>Must Memorize?</strong> YES - CRITICAL</p>
+            </div>
+
+            <div class="distribution-card">
+                <h4>3️⃣ GEOMETRIC DISTRIBUTION</h4>
+                <p><strong>When:</strong> Number of trials until first success</p>
+                <p><strong>Formula:</strong> P(X = x) = (1-p)<sup>(x-1)</sup> × p</p>
+                <p><strong>Mean:</strong> μ = 1/p</p>
+                <p><strong>Must Memorize?</strong> Basic understanding</p>
+            </div>
+
+            <div class="distribution-card">
+                <h4>4️⃣ NEGATIVE BINOMIAL DISTRIBUTION</h4>
+                <p><strong>When:</strong> Number of trials until rth success</p>
+                <p><strong>Formula:</strong> P(X = x) = C(x-1, r-1) × p<sup>r</sup> × (1-p)<sup>(x-r)</sup></p>
+                <p><strong>Mean:</strong> μ = r/p</p>
+                <p><strong>Must Memorize?</strong> Framework understanding</p>
+            </div>
+
+            <div class="distribution-card">
+                <h4>5️⃣ HYPERGEOMETRIC DISTRIBUTION</h4>
+                <p><strong>When:</strong> Sampling WITHOUT replacement from finite population</p>
+                <p><strong>Formula:</strong> P(X = x) = [C(K,x) × C(N-K, n-x)] / C(N, n)</p>
+                <p><strong>KEY DISTINCTION:</strong> Use when binomial assumption violated (no replacement)</p>
+                <p><strong>Must Memorize?</strong> When to use it (CRITICAL!)</p>
+            </div>
+
+            <div class="distribution-card">
+                <h4>6️⃣ NORMAL DISTRIBUTION ⭐⭐⭐</h4>
+                <p><strong>When:</strong> Bell-shaped continuous data, foundation of statistics</p>
+                <p><strong>Formula:</strong> f(x) = (1/(σ√(2π))) × exp(-(x-μ)²/(2σ²))</p>
+                <p><strong>Standardization:</strong> Z = (X - μ)/σ</p>
+                <p><strong>Empirical Rule:</strong> 68-95-99.7 rule</p>
+                <p><strong>Must Memorize?</strong> YES - ABSOLUTELY CRITICAL</p>
+            </div>
+
+            <div class="distribution-card">
+                <h4>7️⃣ EXPONENTIAL DISTRIBUTION</h4>
+                <p><strong>When:</strong> Time until first event, waiting times, lifetime (no wear)</p>
+                <p><strong>Formula:</strong> f(x) = λe<sup>-λx</sup></p>
+                <p><strong>Mean:</strong> μ = 1/λ, <strong>Variance:</strong> σ² = 1/λ²</p>
+                <p><strong>CRITICAL PROPERTY:</strong> Memoryless - P(X > s+t | X > s) = P(X > t)</p>
+                <p><strong>Must Memorize?</strong> YES</p>
+            </div>
+
+            <div class="distribution-card">
+                <h4>8️⃣ GAMMA DISTRIBUTION</h4>
+                <p><strong>When:</strong> Time until kth event, sum of k exponentials</p>
+                <p><strong>Mean:</strong> μ = αβ, <strong>Variance:</strong> σ² = αβ²</p>
+                <p><strong>Special Cases:</strong> α=1 → Exponential; α=k/2, β=2 → Chi-square</p>
+                <p><strong>Formula will be PROVIDED</strong></p>
+            </div>
+
+            <div class="distribution-card">
+                <h4>9️⃣ CHI-SQUARE DISTRIBUTION</h4>
+                <p><strong>When:</strong> Variance testing, goodness-of-fit, independence tests</p>
+                <p><strong>Mean:</strong> μ = k, <strong>Variance:</strong> σ² = 2k</p>
+                <p><strong>Parameter:</strong> k = degrees of freedom</p>
+                <p><strong>Formula and tables will be PROVIDED</strong></p>
+            </div>
+
+            <div class="distribution-card">
+                <h4>🔟 BETA DISTRIBUTION</h4>
+                <p><strong>When:</strong> Data on [0,1] interval, proportions, Bayesian analysis</p>
+                <p><strong>Mean:</strong> μ = α/(α+β)</p>
+                <p><strong>Flexible:</strong> Can be U-shaped, bell-shaped, skewed</p>
+                <p><strong>Formula will be PROVIDED</strong></p>
+            </div>
+
+            <div class="distribution-card">
+                <h4>1️⃣1️⃣ LOGNORMAL DISTRIBUTION</h4>
+                <p><strong>When:</strong> Positive data with right skew, ln(X) is normal</p>
+                <p><strong>Key Property:</strong> If X ~ Lognormal, then ln(X) ~ Normal</p>
+                <p><strong>Scenarios:</strong> Particle sizes, income, component lifetimes with wear</p>
+                <p><strong>Formula will be PROVIDED</strong></p>
+            </div>
+
+            <div class="distribution-card">
+                <h4>1️⃣2️⃣ WEIBULL DISTRIBUTION ⭐</h4>
+                <p><strong>When:</strong> Failure/reliability analysis, lifetime data, wear-out phenomena</p>
+                <p><strong>Formula:</strong> f(x) = (α/β) × (x/β)<sup>(α-1)</sup> × exp(-(x/β)<sup>α</sup>)</p>
+                <p><strong>Parameters:</strong> α = shape, β = scale</p>
+                <p><strong>Special Cases:</strong> α=1 → Exponential; α>1 → wear-out; α<1 → infant mortality</p>
+                <p><strong>Must Memorize?</strong> YES - CRITICAL for reliability</p>
+            </div>
+
+            <div class="distribution-card">
+                <h4>1️⃣3️⃣ UNIFORM DISTRIBUTION</h4>
+                <p><strong>When:</strong> All values equally likely over interval [a,b]</p>
+                <p><strong>Formula:</strong> f(x) = 1/(b-a)</p>
+                <p><strong>Mean:</strong> μ = (a+b)/2, <strong>Variance:</strong> σ² = (b-a)²/12</p>
+            </div>
+
+            <h3>Distribution Selection Flowchart</h3>
+            <pre>
+DATA TYPE?
+│
+├─ DISCRETE (count)
+│  ├─ Fixed trials? → Binomial (2 outcomes) or Multinomial
+│  ├─ Events per unit? → Poisson
+│  ├─ Until rth success? → Negative Binomial
+│  ├─ Until 1st success? → Geometric
+│  └─ No replacement? → Hypergeometric
+│
+└─ CONTINUOUS (measurement)
+   ├─ Time/waiting?
+   │  ├─ Until 1st event? → Exponential
+   │  ├─ Until multiple events? → Gamma
+   │  └─ Failure time? → Weibull
+   ├─ Bell-shaped? → Normal
+   ├─ Log-transformed normal? → Lognormal
+   ├─ On [0,1]? → Beta
+   ├─ Variance test? → Chi-square
+   └─ Equal likelihood? → Uniform
+            </pre>
+
+            <h3>Distribution Relationships</h3>
+            <table>
+                <tr>
+                    <th>General Form</th>
+                    <th>→</th>
+                    <th>Special Case</th>
+                </tr>
+                <tr>
+                    <td>Negative Binomial(r,p)</td>
+                    <td>→</td>
+                    <td>Geometric(p) when r=1</td>
+                </tr>
+                <tr>
+                    <td>Gamma(α,β)</td>
+                    <td>→</td>
+                    <td>Exponential(λ) when α=1</td>
+                </tr>
+                <tr>
+                    <td>Gamma(α,β)</td>
+                    <td>→</td>
+                    <td>Chi-square(k) when α=k/2, β=2</td>
+                </tr>
+                <tr>
+                    <td>Binomial(n,p)</td>
+                    <td>→</td>
+                    <td>Normal(np, np(1-p)) as n→∞</td>
+                </tr>
+                <tr>
+                    <td>Binomial(n,p)</td>
+                    <td>→</td>
+                    <td>Poisson(np) as n→∞, p→0</td>
+                </tr>
+                <tr>
+                    <td>Hypergeometric</td>
+                    <td>→</td>
+                    <td>Binomial as N→∞</td>
+                </tr>
+            </table>
+
+            <h3>Quick Decision Table</h3>
+            <table>
+                <tr>
+                    <th>Distribution</th>
+                    <th>Mean</th>
+                    <th>Variance</th>
+                    <th>Best For</th>
+                </tr>
+                <tr>
+                    <td>Binomial(n,p)</td>
+                    <td>np</td>
+                    <td>np(1-p)</td>
+                    <td>Number of successes in n trials</td>
+                </tr>
+                <tr>
+                    <td>Poisson(λ)</td>
+                    <td>λ</td>
+                    <td>λ</td>
+                    <td>Events per unit time/space</td>
+                </tr>
+                <tr>
+                    <td>Normal(μ,σ)</td>
+                    <td>μ</td>
+                    <td>σ²</td>
+                    <td>Continuous measurements</td>
+                </tr>
+                <tr>
+                    <td>Exponential(λ)</td>
+                    <td>1/λ</td>
+                    <td>1/λ²</td>
+                    <td>Time between events</td>
+                </tr>
+                <tr>
+                    <td>Weibull(α,β)</td>
+                    <td>β·Γ(1+1/α)</td>
+                    <td>Complex</td>
+                    <td>Failure/reliability</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- PRACTICE TAB -->
+        <div id="practice" class="tab-content">
+            <h2>✏️ Practice Problems with Solution Strategies</h2>
+
+            <h3>Problem Type 1: Conditional Probability & Bayes' Theorem</h3>
+            <div class="distribution-card">
+                <h4>Example Problem:</h4>
+                <p>A manufacturing plant produces items with a 2% defect rate. An inspector catches 99% of defects but also incorrectly identifies 1% of good items as defective. If an item is flagged as defective, what is the probability it's actually defective?</p>
+                
+                <h4>Solution Strategy:</h4>
+                <ol>
+                    <li><strong>Define events:</strong> D = actually defective, F = flagged as defective</li>
+                    <li><strong>List given:</strong> P(D) = 0.02, P(F|D) = 0.99, P(F|D<sup>c</sup>) = 0.01</li>
+                    <li><strong>Find:</strong> P(D|F) using Bayes' theorem</li>
+                    <li><strong>Calculate P(F):</strong> P(F) = P(F|D)P(D) + P(F|D<sup>c</sup>)P(D<sup>c</sup>) = 0.0198 + 0.0098 = 0.0296</li>
+                    <li><strong>Apply Bayes:</strong> P(D|F) = (0.99 × 0.02) / 0.0296 ≈ 0.668</li>
+                </ol>
+                <p><strong>Answer:</strong> ~67% probability it's actually defective</p>
+                <p><strong>Key Insight:</strong> Even with 99% accuracy, rare defects lead to high false positives!</p>
+            </div>
+
+            <h3>Problem Type 2: Expected Value and Variance</h3>
+            <div class="distribution-card">
+                <h4>Example Problem:</h4>
+                <p>A company's profit X (in thousands) has distribution: Loss (-50) with p=0.2, Modest gain (20) with p=0.5, Large gain (100) with p=0.3. Calculate E(X) and Var(X).</p>
+                
+                <h4>Solution Strategy:</h4>
+                <ol>
+                    <li><strong>Calculate E(X):</strong> Σ x·P(x) = (-50)(0.2) + (20)(0.5) + (100)(0.3) = 30</li>
+                    <li><strong>Calculate E(X²):</strong> Σ x²·P(x) = 2500(0.2) + 400(0.5) + 10000(0.3) = 3700</li>
+                    <li><strong>Calculate Var(X):</strong> E(X²) - [E(X)]² = 3700 - 900 = 2800</li>
+                    <li><strong>SD(X):</strong> √2800 ≈ 52.9</li>
+                </ol>
+                <p><strong>Answer:</strong> E(X) = 30, Var(X) = 2800, SD(X) ≈ 52.9</p>
+            </div>
+
+            <h3>Problem Type 3: Binomial Distribution</h3>
+            <div class="distribution-card">
+                <h4>Example Problem:</h4>
+                <p>A production line has 5% defect rate. In a sample of 20 items, what's the probability exactly 2 are defective?</p>
+                
+                <h4>Solution Strategy:</h4>
+                <ol>
+                    <li><strong>Verify conditions:</strong> Fixed n=20, 2 outcomes, constant p=0.05 ✓</li>
+                    <li><strong>Apply formula:</strong> P(X=2) = C(20,2) × (0.05)² × (0.95)¹⁸</li>
+                    <li><strong>Calculate:</strong> C(20,2) = 190, result ≈ 0.179</li>
+                </ol>
+                <p><strong>Answer:</strong> ~17.9%</p>
+            </div>
+
+            <h3>Problem Type 4: Poisson Distribution ⭐</h3>
+            <div class="distribution-card">
+                <h4>Example Problem:</h4>
+                <p>Manufacturing defects occur at 2 per 100 meters of cable. What's the probability of exactly 3 defects in 100 meters?</p>
+                
+                <h4>Solution Strategy:</h4>
+                <ol>
+                    <li><strong>Identify:</strong> λ = 2 (average defects per 100m)</li>
+                    <li><strong>Apply formula:</strong> P(X=3) = (e<sup>-2</sup> × 2<sup>3</sup>) / 3!</li>
+                    <li><strong>Calculate:</strong> (0.1353 × 8) / 6 ≈ 0.180</li>
+                </ol>
+                <p><strong>Answer:</strong> ~18.0%</p>
+                <p><strong>Key:</strong> Mean = Variance = 2</p>
+            </div>
+
+            <h3>Problem Type 5: Normal Distribution & Z-Scores</h3>
+            <div class="distribution-card">
+                <h4>Example Problem:</h4>
+                <p>Component lifetimes are Normal(μ=1000, σ=100). What's P(900 < X < 1100)?</p>
+                
+                <h4>Solution Strategy:</h4>
+                <ol>
+                    <li><strong>Standardize:</strong> Z₁ = (900-1000)/100 = -1.00, Z₂ = (1100-1000)/100 = 1.00</li>
+                    <li><strong>Find:</strong> P(-1 < Z < 1) from Z-table = 0.8413 - 0.1587 = 0.6826</li>
+                    <li><strong>Alternative:</strong> Use empirical rule - this is ±1σ from mean = 68%</li>
+                </ol>
+                <p><strong>Answer:</strong> ~68.26%</p>
+            </div>
+
+            <h3>Problem Type 6: Finding Critical Values</h3>
+            <div class="distribution-card">
+                <h4>Example Problem:</h4>
+                <p>Component lifetimes are Normal(1000, 100). Find the lifetime below which 10% of components fail.</p>
+                
+                <h4>Solution Strategy:</h4>
+                <ol>
+                    <li><strong>Find:</strong> z₀ where P(Z < z₀) = 0.10 from Z-table → z₀ ≈ -1.28</li>
+                    <li><strong>Convert back:</strong> x₀ = μ + z₀·σ = 1000 + (-1.28)(100) = 872</li>
+                </ol>
+                <p><strong>Answer:</strong> 872 hours (10th percentile)</p>
+            </div>
+
+            <h3>Problem Type 7: Exponential & Weibull</h3>
+            <div class="distribution-card">
+                <h4>Example Problem:</h4>
+                <p>Component failures follow Exponential with mean 5000 hours. 
+                a) P(fail within 1000 hours)?
+                b) Given working after 3000 hours, P(works another 1000)?</p>
+                
+                <h4>Solution Strategy:</h4>
+                <ol>
+                    <li><strong>Part a:</strong> λ = 1/5000, P(X ≤ 1000) = 1 - e<sup>-1000/5000</sup> = 1 - e<sup>-0.2</sup> ≈ 0.1813</li>
+                    <li><strong>Part b:</strong> Use memoryless: P(X > 1000) = e<sup>-0.2</sup> ≈ 0.8187</li>
+                </ol>
+                <p><strong>Answers:</strong> a) 18.13%, b) 81.87%</p>
+                <p><strong>Key:</strong> Memoryless property - past doesn't matter!</p>
+            </div>
+
+            <h3>Problem Type 8: Linear Regression</h3>
+            <div class="distribution-card">
+                <h4>Example Problem:</h4>
+                <p>Data: (2,50), (4,65), (6,75), (8,85), (10,95). Find regression equation ŷ = b₀ + b₁x</p>
+                
+                <h4>Solution Strategy:</h4>
+                <ol>
+                    <li><strong>Calculate:</strong> Σx=30, Σy=370, Σxy=2440, Σx²=220, n=5</li>
+                    <li><strong>Find b₁:</strong> b₁ = [2440 - 5(6)(74)] / [220 - 5(36)] = 220/40 = 5.5</li>
+                    <li><strong>Find b₀:</strong> b₀ = 74 - 5.5(6) = 41</li>
+                    <li><strong>Equation:</strong> ŷ = 41 + 5.5x</li>
+                </ol>
+                <p><strong>Interpretation:</strong> Each hour of study increases score by 5.5 points</p>
+            </div>
+
+            <h3>Problem Type 9: Concept Integration</h3>
+            <div class="distribution-card">
+                <h4>Example Problem:</h4>
+                <p>Two independent quality checks (95% and 90% sensitive). Defect rate is 3%. a) P(both miss a defect)? b) P(defective | passes both)?</p>
+                
+                <h4>Solution Strategy (Part a):</h4>
+                <p>P(both miss | defect) = (1-0.95)(1-0.90) = 0.05 × 0.10 = 0.005</p>
+                
+                <h4>Solution Strategy (Part b):</h4>
+                <p>Use Bayes' theorem with above calculation</p>
+                <p><strong>Answer:</strong> ~0.155% (very low - system is effective!)</p>
+            </div>
+
+            <h3>Common Exam Mistakes to Avoid</h3>
+            <div class="warning">
+                <ul>
+                    <li>✗ Using binomial when hypergeometric needed (check: with or without replacement?)</li>
+                    <li>✗ Confusing P(A|B) with P(B|A)</li>
+                    <li>✗ Forgetting variance scales by a² for Var(aX)</li>
+                    <li>✗ Not standardizing before using Z-tables</li>
+                    <li>✗ Using wrong regression formula order</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- FORMULAS TAB -->
+        <div id="formulas" class="tab-content">
+            <h2>⭐ Key Formulas & Memorization Guide</h2>
+
+            <h3>⭐⭐⭐ ABSOLUTE MEMORIZATION REQUIREMENTS</h3>
+
+            <div class="distribution-card">
+                <h4>1. Normal Distribution (MUST MEMORIZE)</h4>
+                <div class="formula-box">
+                    <div class="formula-label">📐 PDF Formula:</div>
+                    <div class="formula-line">
+                        <div class="formula-math">f(x) = <span class="fraction"><span class="numerator">1</span><span class="denominator">σ√(2π)</span></span> × e<sup>−(x−μ)²/2σ²</sup></div>
+                        <div class="formula-desc">Where μ is mean, σ is standard deviation, e ≈ 2.71828</div>
+                    </div>
+                    
+                    <div class="formula-label">🔄 Standardization (Z-score):</div>
+                    <div class="formula-line">
+                        <div class="formula-math">Z = (X − μ) / σ</div>
+                        <div class="formula-desc">Convert any normal variable to standard normal (Z-table lookup)</div>
+                    </div>
+                    
+                    <div class="formula-label">📊 Empirical Rule:</div>
+                    <div class="formula-line">
+                        <div class="formula-math">• 68% of data within μ ± σ</div>
+                        <div class="formula-math">• 95% of data within μ ± 2σ</div>
+                        <div class="formula-math">• 99.7% of data within μ ± 3σ</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="distribution-card">
+                <h4>2. Bayes' Theorem (MUST MEMORIZE)</h4>
+                <div class="formula-box">
+                    <div class="formula-label">🎯 Main Formula:</div>
+                    <div class="formula-line">
+                        <div class="formula-math">P(A | B) = <span class="fraction"><span class="numerator">P(B | A) × P(A)</span><span class="denominator">P(B)</span></span></div>
+                        <div class="formula-desc">Find probability of cause A given evidence B</div>
+                    </div>
+                    
+                    <div class="formula-label">📈 Extended Form (Law of Total Probability):</div>
+                    <div class="formula-line">
+                        <div class="formula-math">P(A | B) = <span class="fraction"><span class="numerator">P(B | A) × P(A)</span><span class="denominator">P(B | A) × P(A) + P(B | A<sup>c</sup>) × P(A<sup>c</sup>)</span></span></div>
+                        <div class="formula-desc">Use when you need to calculate P(B) from all possible causes</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="distribution-card">
+                <h4>3. Poisson Distribution (MUST MEMORIZE)</h4>
+                <div class="formula-box">
+                    <div class="formula-label">📊 Probability Mass Function:</div>
+                    <div class="formula-line">
+                        <div class="formula-math">P(X = x) = <span class="fraction"><span class="numerator">e<sup>−λ</sup> × λ<sup>x</sup></span><span class="denominator">x!</span></span></div>
+                        <div class="formula-desc">Where λ is the average rate and x is the number of events</div>
+                    </div>
+                    
+                    <div class="formula-label">📈 Mean & Variance:</div>
+                    <div class="formula-line">
+                        <div class="formula-math">Mean: μ = λ</div>
+                        <div class="formula-math">Variance: σ<sup>2</sup> = λ</div>
+                        <div class="formula-desc">⭐ CRITICAL: Mean equals Variance for Poisson!</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="distribution-card">
+                <h4>4. Exponential Distribution (MUST MEMORIZE)</h4>
+                <div class="formula-box">
+                    <div class="formula-label">📊 Probability Density Function:</div>
+                    <div class="formula-line">
+                        <div class="formula-math">f(x) = λe<sup>−λx</sup>, where x ≥ 0</div>
+                        <div class="formula-math">CDF: F(x) = 1 − e<sup>−λx</sup></div>
+                    </div>
+                    
+                    <div class="formula-label">📈 Mean & Variance:</div>
+                    <div class="formula-line">
+                        <div class="formula-math">Mean: μ = 1/λ</div>
+                        <div class="formula-math">Variance: σ<sup>2</sup> = 1/λ<sup>2</sup></div>
+                    </div>
+
+                    <div class="formula-label">🔄 Memoryless Property (CRITICAL):</div>
+                    <div class="formula-line">
+                        <div class="formula-math">P(X > s + t | X > s) = P(X > t)</div>
+                        <div class="formula-desc">Past time doesn't affect future probability</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="distribution-card">
+                <h4>5. Weibull Distribution (MUST MEMORIZE)</h4>
+                <div class="formula-box">
+                    <div class="formula-label">📊 Probability Density Function:</div>
+                    <div class="formula-line">
+                        <div class="formula-math">f(x) = <span class="fraction"><span class="numerator">α</span><span class="denominator">β</span></span> × <span class="fraction"><span class="numerator">x</span><span class="denominator">β</span></span><sup>α−1</sup> × e<sup>−(x/β)<sup>α</sup></sup>, where x ≥ 0</div>
+                        <div class="formula-math">CDF: F(x) = 1 − e<sup>−(x/β)<sup>α</sup></sup></div>
+                    </div>
+
+                    <div class="formula-label">⚙️ Parameters:</div>
+                    <div class="formula-line">
+                        <div class="formula-math">• α (alpha) = Shape parameter</div>
+                        <div class="formula-math">• β (beta) = Scale parameter (characteristic life)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="distribution-card">
+                <h4>6. Binomial Distribution (MUST MEMORIZE)</h4>
+                <div class="formula-box">
+                    <div class="formula-label">📊 Probability Mass Function:</div>
+                    <div class="formula-line">
+                        <div class="formula-math">P(X = x) = C(n,x) × p<sup>x</sup> × (1−p)<sup>(n−x)</sup></div>
+                        <div class="formula-desc">Where C(n,x) = <span class="fraction"><span class="numerator">n!</span><span class="denominator">x!(n−x)!</span></span></div>
+                    </div>
+
+                    <div class="formula-label">📈 Mean & Variance:</div>
+                    <div class="formula-line">
+                        <div class="formula-math">Mean: μ = np</div>
+                        <div class="formula-math">Variance: σ<sup>2</sup> = np(1−p)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="distribution-card">
+                <h4>7. Conditional Probability (MUST MEMORIZE)</h4>
+                <div class="formula-box">
+                    <div class="formula-label">🎯 Basic Formula:</div>
+                    <div class="formula-line">
+                        <div class="formula-math">P(A | B) = <span class="fraction"><span class="numerator">P(A ∩ B)</span><span class="denominator">P(B)</span></span></div>
+                        <div class="formula-desc">Probability of A given B has occurred</div>
+                    </div>
+
+                    <div class="formula-label">🔀 Product Rule:</div>
+                    <div class="formula-line">
+                        <div class="formula-math">P(A ∩ B) = P(A | B) × P(B) = P(B | A) × P(A)</div>
+                        <div class="formula-desc">Joint probability equals conditional × individual probability</div>
+                    </div>
+
+                    <div class="formula-label">✓ Independence Condition:</div>
+                    <div class="formula-line">
+                        <div class="formula-math">P(A ∩ B) = P(A) × P(B)</div>
+                        <div class="formula-desc">If and only if A and B are independent</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="distribution-card">
+                <h4>8. Expected Value (MUST KNOW)</h4>
+                <div class="formula-box">
+                    <div class="formula-label">📊 Discrete Variables:</div>
+                    <div class="formula-line">
+                        <div class="formula-math">E(X) = Σ [x · P(x)]</div>
+                        <div class="formula-desc">Sum of each value times its probability</div>
+                    </div>
+
+                    <div class="formula-label">📊 Continuous Variables:</div>
+                    <div class="formula-line">
+                        <div class="formula-math">E(X) = ∫ [x · f(x)] dx</div>
+                        <div class="formula-desc">Integral of value times its probability density</div>
+                    </div>
+
+                    <div class="formula-label">🔄 Linear Function:</div>
+                    <div class="formula-line">
+                        <div class="formula-math">E(aX + b) = aE(X) + b</div>
+                        <div class="formula-desc">Linearity of expectation property</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="distribution-card">
+                <h4>9. Variance (MUST KNOW)</h4>
+                <div class="formula-box">
+                    <div class="formula-label">📐 Definition:</div>
+                    <div class="formula-line">
+                        <div class="formula-math">Var(X) = E(X²) − [E(X)]²</div>
+                        <div class="formula-desc">Expected squared deviation from the mean</div>
+                    </div>
+
+                    <div class="formula-label">🔄 Linear Function:</div>
+                    <div class="formula-line">
+                        <div class="formula-math">Var(aX + b) = a² · Var(X)</div>
+                        <div class="formula-desc">⚠️ Note: Variance scales by a², not a!</div>
+                    </div>
+
+                    <div class="formula-label">➕ Sum of Independent Variables:</div>
+                    <div class="formula-line">
+                        <div class="formula-math">Var(X + Y) = Var(X) + Var(Y)</div>
+                        <div class="formula-desc">Only true if X and Y are independent</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="distribution-card">
+                <h4>10. Least Squares Regression (MUST MEMORIZE)</h4>
+                
+                <div class="explanation-box">
+                    <h4>📚 Understanding SST, SSR, and SSE</h4>
+                    
+                    <div class="explanation-item">
+                        <div class="term">SST = Total Sum of Squares</div>
+                        <div class="meaning">SST = Σ(yᵢ − ȳ)²</div>
+                        <div class="usage">Measures total variation in your data (how much data varies from the mean)</div>
+                    </div>
+
+                    <div class="explanation-item">
+                        <div class="term">SSR = Regression Sum of Squares</div>
+                        <div class="meaning">SSR = Σ(ŷᵢ − ȳ)²</div>
+                        <div class="usage">Measures variation EXPLAINED by your regression model (good part)</div>
+                    </div>
+
+                    <div class="explanation-item">
+                        <div class="term">SSE = Error Sum of Squares (Residual)</div>
+                        <div class="meaning">SSE = Σ(yᵢ − ŷᵢ)²</div>
+                        <div class="usage">Measures variation NOT explained by regression (bad part - errors)</div>
+                    </div>
+
+                    <div class="explanation-item">
+                        <div class="term">📊 Key Relationship</div>
+                        <div class="meaning">SST = SSR + SSE</div>
+                        <div class="usage">Total variation = Explained variation + Unexplained variation</div>
+                    </div>
+                </div>
+
+                <div class="formula-box">
+                    <div class="formula-label">📐 Regression Coefficients:</div>
+                    <div class="formula-line">
+                        <div class="formula-math">b₁ = <span class="fraction"><span class="numerator">Σxy − n(x̄)(ȳ)</span><span class="denominator">Σx² − n(x̄)²</span></span></div>
+                        <div class="formula-desc">Slope of the regression line</div>
+                    </div>
+                    <div class="formula-line">
+                        <div class="formula-math">b₀ = ȳ − b₁x̄</div>
+                        <div class="formula-desc">Y-intercept of the regression line</div>
+                    </div>
+
+                    <div class="formula-label">📊 Fitted Regression Line:</div>
+                    <div class="formula-line">
+                        <div class="formula-math">ŷ = b₀ + b₁x</div>
+                    </div>
+
+                    <div class="formula-label">📈 Residuals & Sum of Squares:</div>
+                    <div class="formula-line">
+                        <div class="formula-math">Residual: eᵢ = yᵢ − ŷᵢ (actual − predicted)</div>
+                        <div class="formula-math">SST = Σ(yᵢ − ȳ)² (Total variation)</div>
+                        <div class="formula-math">SSR = Σ(ŷᵢ − ȳ)² (Explained by regression)</div>
+                        <div class="formula-math">SSE = Σ(yᵢ − ŷᵢ)² (Unexplained error)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="distribution-card">
+                <h4>11. Normal Approximation to Binomial</h4>
+                <div class="formula-box">
+                    <div class="formula-label">✓ Conditions Required:</div>
+                    <div class="formula-line">
+                        <div class="formula-math">• np ≥ 10</div>
+                        <div class="formula-math">• n(1−p) ≥ 10</div>
+                        <div class="formula-desc">Both conditions must be met for valid approximation</div>
+                    </div>
+
+                    <div class="formula-label">📊 Approximation:</div>
+                    <div class="formula-line">
+                        <div class="formula-math">If X ~ Binomial(n,p), then approximately</div>
+                        <div class="formula-math">X ~ Normal(μ = np, σ<sup>2</sup> = np(1−p))</div>
+                    </div>
+
+                    <div class="formula-label">🔄 Continuity Correction:</div>
+                    <div class="formula-line">
+                        <div class="formula-math">P(X = k) ≈ P(k − 0.5 < X < k + 0.5)</div>
+                        <div class="formula-desc">Adjust for discrete-to-continuous conversion</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>🔔 WILL BE PROVIDED DURING EXAM</h3>
+            <div class="success">
+                <ul>
+                    <li>✓ Z-tables (standard normal cumulative probabilities)</li>
+                    <li>✓ Chi-square distribution tables and values</li>
+                    <li>✓ t-distribution values</li>
+                    <li>✓ Gamma distribution formulas and details</li>
+                    <li>✓ Beta distribution formulas</li>
+                    <li>✓ Lognormal distribution formulas</li>
+                </ul>
+            </div>
+
+            <h3>📋 Memorization Checklist</h3>
+            <ul class="checklist">
+                <li>Normal distribution PDF formula</li>
+                <li>Z-score standardization formula</li>
+                <li>Empirical rule (68-95-99.7)</li>
+                <li>Bayes' theorem</li>
+                <li>Conditional probability formula</li>
+                <li>Poisson PMF and mean=variance</li>
+                <li>Exponential PDF and memoryless property</li>
+                <li>Weibull PDF</li>
+                <li>Binomial formula</li>
+                <li>Expected value definition</li>
+                <li>Variance formula</li>
+                <li>Linear regression coefficients</li>
+                <li>Normal approximation conditions</li>
+            </ul>
+
+            <h3>💡 Study Tips for Memorization</h3>
+            <div class="info">
+                <strong>Week 1:</strong> Bayes, Conditional Probability, Normal, Expectation, Variance
+                <br><strong>Week 2:</strong> Binomial, Poisson, Exponential, Z-scores
+                <br><strong>Week 3:</strong> Weibull, Regression, Linear combinations
+                <br><strong>Week 4:</strong> Review and verification daily
+            </div>
+
+            <h3>🎯 Common Formula Mistakes</h3>
+            <table>
+                <tr>
+                    <th>❌ WRONG</th>
+                    <th>✅ CORRECT</th>
+                </tr>
+                <tr>
+                    <td>Var(2X) = 2Var(X)</td>
+                    <td>Var(2X) = 4Var(X) = 2²Var(X)</td>
+                </tr>
+                <tr>
+                    <td>Z = (μ - X)/σ</td>
+                    <td>Z = (X - μ)/σ</td>
+                </tr>
+                <tr>
+                    <td>P(A|B) = P(A)P(B|A)</td>
+                    <td>P(A|B) = P(B|A)P(A) / P(B)</td>
+                </tr>
+                <tr>
+                    <td>Normal: (x-μ)²/(2σ)</td>
+                    <td>Normal: (x-μ)²/(2σ²)</td>
+                </tr>
+                <tr>
+                    <td>b₀ = ȳ + b₁x̄</td>
+                    <td>b₀ = ȳ - b₁x̄</td>
+                </tr>
+            </table>
+
+            <div class="footer">
+                <p>🎓 Final Reminder: Focus on understanding WHEN to use each formula, not just memorizing them!</p>
+            </div>
+        </div>
+
+        <!-- CONTEXT & EXAMPLES TAB -->
+        <div id="context" class="tab-content">
+            <h2>🔬 Formulas in Context: Where They Come From & How to Use Them</h2>
+            <p><strong>This section explains each formula's origin, real-world applications, and includes complete worked examples.</strong></p>
+
+            <h3>1️⃣ NORMAL DISTRIBUTION FORMULA</h3>
+            
+            <div class="distribution-card">
+                <h4>📍 From: Chapter 6, Section 6.2</h4>
+                <p><strong>The Formula:</strong> f(x) = <span class="fraction"><span class="numerator">1</span><span class="denominator">σ√(2π)</span></span> × e<sup>−(x−μ)²/2σ²</sup></p>
+                
+                <h4>✅ When to Use It:</h4>
+                <ul>
+                    <li>Measuring <strong>continuous data</strong> that appears bell-shaped</li>
+                    <li><strong>Natural phenomena</strong> (heights, weights, test scores, blood pressure)</li>
+                    <li><strong>Quality control</strong> (product measurements within tolerance)</li>
+                    <li><strong>Manufacturing processes</strong> (machine output variation)</li>
+                    <li>Finding probabilities for <strong>natural measurements</strong></li>
+                </ul>
+
+                <h4>❌ When NOT to Use It:</h4>
+                <ul>
+                    <li>Don't use for <strong>discrete count data</strong> (use Poisson instead)</li>
+                    <li>Don't use when data is <strong>skewed</strong> (use Lognormal instead)</li>
+                    <li>Don't use for <strong>bounded data</strong> like percentages (use Beta instead)</li>
+                </ul>
+
+                <h4>🔍 Real-World Example:</h4>
+                <p><strong>Scenario:</strong> A battery manufacturer produces batteries with voltage that follows a normal distribution with mean 12V and standard deviation 0.5V. What percentage of batteries have voltage between 11.5V and 12.5V?</p>
+                
+                <div class="explanation-box">
+                    <h4>📊 Solution:</h4>
+                    <div class="explanation-item">
+                        <div class="term">Step 1: Recognize the problem type</div>
+                        <div class="meaning">This is a <strong>normal distribution problem</strong> - continuous measurement with bell-shaped data</div>
+                    </div>
+                    <div class="explanation-item">
+                        <div class="term">Step 2: Convert to Z-scores</div>
+                        <div class="meaning">Z₁ = (11.5 - 12) / 0.5 = <strong>−1.0</strong></div>
+                        <div class="meaning">Z₂ = (12.5 - 12) / 0.5 = <strong>1.0</strong></div>
+                    </div>
+                    <div class="explanation-item">
+                        <div class="term">Step 3: Use Z-table or empirical rule</div>
+                        <div class="meaning">P(−1 < Z < 1) = <strong>68%</strong> (empirical rule: within ±1σ of mean)</div>
+                    </div>
+                    <div class="explanation-item">
+                        <div class="term">✅ Answer</div>
+                        <div class="meaning"><strong>68% of batteries</strong> have voltage between 11.5V and 12.5V</div>
+                    </div>
+                </div>
+
+                <h4>📚 Related Concepts:</h4>
+                <ul>
+                    <li>Z-score standardization (Chapter 6, Section 6.3)</li>
+                    <li>Empirical Rule (Chapter 6)</li>
+                    <li>Normal Approximation to Binomial (Chapter 6, Section 6.5)</li>
+                </ul>
+            </div>
+
+            <h3>2️⃣ BAYES' THEOREM FORMULA</h3>
+            
+            <div class="distribution-card">
+                <h4>📍 From: Chapter 2, Section 2.7</h4>
+                <p><strong>The Formula:</strong> P(A|B) = <span class="fraction"><span class="numerator">P(B|A) × P(A)</span><span class="denominator">P(B)</span></span></p>
+                
+                <h4>✅ When to Use It:</h4>
+                <ul>
+                    <li><strong>Medical testing</strong> (given positive test result, what's probability of disease?)</li>
+                    <li><strong>Quality control</strong> (given defect detected, what's probability it's real?)</li>
+                    <li><strong>Spam detection</strong> (given spam-like email, what's probability it's spam?)</li>
+                    <li>Finding <strong>posterior probability</strong> (cause given evidence)</li>
+                    <li><strong>Classification problems</strong> (determining category given observations)</li>
+                </ul>
+
+                <h4>❌ When NOT to Use It:</h4>
+                <ul>
+                    <li>Don't use for simple probability (just use multiplication rule)</li>
+                    <li>Don't use when events are <strong>independent</strong> (P(A|B) = P(A) anyway)</li>
+                    <li><strong>Don't confuse</strong> P(A|B) with P(B|A) - they're different!</li>
+                </ul>
+
+                <h4>🔍 Real-World Example:</h4>
+                <p><strong>Scenario:</strong> A disease screening test has these characteristics:</p>
+                <ul>
+                    <li>Disease prevalence: 1% of population</li>
+                    <li>Test sensitivity: 95% (catches 95% of actual cases)</li>
+                    <li>False positive rate: 5% (5% of healthy people test positive)</li>
+                </ul>
+                <p><strong>Question:</strong> If someone tests positive, what's the probability they actually have the disease?</p>
+                
+                <div class="explanation-box">
+                    <h4>📊 Solution:</h4>
+                    <div class="explanation-item">
+                        <div class="term">Step 1: Define events</div>
+                        <div class="meaning">D = person has disease, P(D) = <strong>0.01</strong></div>
+                        <div class="meaning">T<sup>+</sup> = test is positive</div>
+                        <div class="meaning">P(T<sup>+</sup>|D) = <strong>0.95</strong> (sensitivity)</div>
+                        <div class="meaning">P(T<sup>+</sup>|D<sup>c</sup>) = <strong>0.05</strong> (false positive rate)</div>
+                    </div>
+                    <div class="explanation-item">
+                        <div class="term">Step 2: Calculate P(T<sup>+</sup>)</div>
+                        <div class="meaning">P(T<sup>+</sup>) = P(T<sup>+</sup>|D)×P(D) + P(T<sup>+</sup>|D<sup>c</sup>)×P(D<sup>c</sup>)</div>
+                        <div class="meaning">= (0.95 × 0.01) + (0.05 × 0.99) = 0.0095 + 0.0495 = <strong>0.059</strong></div>
+                    </div>
+                    <div class="explanation-item">
+                        <div class="term">Step 3: Apply Bayes' Theorem</div>
+                        <div class="meaning">P(D|T<sup>+</sup>) = (0.95 × 0.01) / 0.059 = 0.0095 / 0.059 ≈ <strong>0.161</strong></div>
+                    </div>
+                    <div class="explanation-item">
+                        <div class="term">✅ Answer</div>
+                        <div class="meaning"><strong>Only 16.1% probability</strong> person actually has disease despite positive test!</div>
+                        <div class="usage">This is why doctors recommend confirmatory tests before diagnosis</div>
+                    </div>
+                </div>
+
+                <h4>📚 Related Concepts:</h4>
+                <ul>
+                    <li>Conditional Probability (Chapter 2, Section 2.5)</li>
+                    <li>Total Probability Law (Chapter 2)</li>
+                    <li>Independence (Chapter 2, Section 2.5)</li>
+                </ul>
+            </div>
+
+            <h3>3️⃣ POISSON DISTRIBUTION FORMULA</h3>
+            
+            <div class="distribution-card">
+                <h4>📍 From: Chapter 5, Section 5.5</h4>
+                <p><strong>The Formula:</strong> P(X = x) = <span class="fraction"><span class="numerator">e<sup>−λ</sup> × λ<sup>x</sup></span><span class="denominator">x!</span></span></p>
+                <p><strong>Key Property:</strong> Mean = λ, Variance = λ</p>
+                
+                <h4>✅ When to Use It:</h4>
+                <ul>
+                    <li><strong>Rare events</strong> in fixed intervals</li>
+                    <li><strong>Arrivals/departures</strong> (customers per hour, calls per minute)</li>
+                    <li><strong>Defects per unit</strong> (defects per 100 meters of cable)</li>
+                    <li><strong>Accidents</strong> (traffic accidents per day)</li>
+                    <li><strong>Biological events</strong> (mutations per generation)</li>
+                </ul>
+
+                <h4>❌ When NOT to Use It:</h4>
+                <ul>
+                    <li>Don't use for <strong>fixed number of trials</strong> (use Binomial instead)</li>
+                    <li>Don't use when <strong>rate changes</strong> over interval</li>
+                    <li>Don't use if <strong>events affect each other</strong> (violates independence)</li>
+                </ul>
+
+                <h4>🔍 Real-World Example:</h4>
+                <p><strong>Scenario:</strong> A call center receives an average of 3 calls per minute. What's the probability of getting exactly 5 calls in the next minute?</p>
+                
+                <div class="explanation-box">
+                    <h4>📊 Solution:</h4>
+                    <div class="explanation-item">
+                        <div class="term">Step 1: Verify Poisson conditions</div>
+                        <div class="meaning">✓ Events (calls) occur independently</div>
+                        <div class="meaning">✓ Constant average rate (3 per minute)</div>
+                        <div class="meaning">✓ Counting events in fixed interval (1 minute)</div>
+                    </div>
+                    <div class="explanation-item">
+                        <div class="term">Step 2: Identify parameter</div>
+                        <div class="meaning">λ = <strong>3 calls per minute</strong></div>
+                    </div>
+                    <div class="explanation-item">
+                        <div class="term">Step 3: Apply formula</div>
+                        <div class="meaning">P(X = 5) = (e<sup>−3</sup> × 3<sup>5</sup>) / 5!</div>
+                        <div class="meaning">= (0.0498 × 243) / 120 ≈ <strong>0.101</strong></div>
+                    </div>
+                    <div class="explanation-item">
+                        <div class="term">✅ Answer</div>
+                        <div class="meaning"><strong>10.1% probability</strong> of exactly 5 calls in next minute</div>
+                    </div>
+                </div>
+
+                <h4>🎯 Key Insight:</h4>
+                <p><strong>Mean = Variance for Poisson!</strong> Both equal λ. This property helps identify Poisson scenarios.</p>
+
+                <h4>📚 Related Concepts:</h4>
+                <ul>
+                    <li>Connection to Exponential Distribution (Chapter 6, Section 6.7)</li>
+                    <li>Poisson Process (Chapter 5, Section 5.5)</li>
+                    <li>Normal Approximation (Chapter 6, Section 6.5)</li>
+                </ul>
+            </div>
+
+            <h3>4️⃣ EXPONENTIAL DISTRIBUTION FORMULA</h3>
+            
+            <div class="distribution-card">
+                <h4>📍 From: Chapter 6, Section 6.7</h4>
+                <p><strong>The Formula:</strong> f(x) = λe<sup>−λx</sup>, where x ≥ 0</p>
+                <p><strong>Key Property (Memoryless):</strong> P(X > s + t | X > s) = P(X > t)</p>
+                
+                <h4>✅ When to Use It:</h4>
+                <ul>
+                    <li><strong>Time between events</strong> in Poisson process</li>
+                    <li><strong>Waiting times</strong> (time until next customer)</li>
+                    <li><strong>Equipment lifetime</strong> (no wear, random failure)</li>
+                    <li><strong>Service times</strong> (how long service takes)</li>
+                    <li><strong>Interarrival times</strong> (time between arrivals)</li>
+                </ul>
+
+                <h4>⭐ CRITICAL PROPERTY - Memoryless:</h4>
+                <p>P(X > s + t | X > s) = P(X > t)<br>
+                <strong>Past time doesn't matter</strong> - system "forgets" how long you've waited!</p>
+
+                <h4>❌ When NOT to Use It:</h4>
+                <ul>
+                    <li>Don't use for <strong>time with wear/aging</strong> (use Weibull instead)</li>
+                    <li>Don't use for <strong>multiple events</strong> until kth event (use Gamma instead)</li>
+                </ul>
+
+                <h4>🔍 Real-World Example:</h4>
+                <p><strong>Scenario:</strong> Average time between customer arrivals at a store is 10 minutes.</p>
+                <p><strong>Question a:</strong> What's probability customer arrives within next 5 minutes?<br>
+                <strong>Question b:</strong> Given no customer for 10 minutes, what's probability next customer arrives within 5 minutes?</p>
+                
+                <div class="explanation-box">
+                    <h4>📊 Solution:</h4>
+                    <div class="explanation-item">
+                        <div class="term">Step 1: Identify parameter</div>
+                        <div class="meaning">Mean = 10 minutes, so λ = <strong>1/10</strong></div>
+                    </div>
+                    <div class="explanation-item">
+                        <div class="term">Step 2: Part (a) - Basic probability</div>
+                        <div class="meaning">P(X ≤ 5) = 1 − e<sup>−(1/10)×5</sup> = 1 − e<sup>−0.5</sup></div>
+                        <div class="meaning">= <strong>0.393 or 39.3%</strong></div>
+                    </div>
+                    <div class="explanation-item">
+                        <div class="term">Step 3: Part (b) - Using memoryless property</div>
+                        <div class="meaning">P(X ≤ 5 | X > 10) = P(X ≤ 5) = <strong>0.393 or 39.3%</strong></div>
+                        <div class="usage">Same answer! Past waiting doesn't help predict future</div>
+                    </div>
+                    <div class="explanation-item">
+                        <div class="term">✅ Key Insight</div>
+                        <div class="meaning">The <strong>"memoryless" property</strong> makes exponential special - previous experience is irrelevant!</div>
+                    </div>
+                </div>
+
+                <h4>📚 Related Concepts:</h4>
+                <ul>
+                    <li>Connection to Poisson Process (Chapter 5)</li>
+                    <li>Gamma Distribution (Chapter 6, Section 6.6)</li>
+                    <li>Memoryless Property (Chapter 6, Section 6.7)</li>
+                </ul>
+            </div>
+
+            <h3>5️⃣ WEIBULL DISTRIBUTION FORMULA</h3>
+            
+            <div class="distribution-card">
+                <h4>📍 From: Chapter 6, Section 6.11</h4>
+                <p><strong>The Formula:</strong> f(x) = <span class="fraction"><span class="numerator">α</span><span class="denominator">β</span></span> × <span class="fraction"><span class="numerator">x</span><span class="denominator">β</span></span><sup>α−1</sup> × e<sup>−(x/β)<sup>α</sup></sup></p>
+                
+                <h4>✅ When to Use It:</h4>
+                <ul>
+                    <li><strong>Reliability engineering</strong> (equipment failure times)</li>
+                    <li><strong>Component lifetime</strong> (electronic components, bearings)</li>
+                    <li><strong>Failure analysis</strong> (predicting when items will fail)</li>
+                    <li><strong>Warranty periods</strong> (how long until failure)</li>
+                    <li><strong>Strength of materials</strong> (material breaking strength)</li>
+                </ul>
+
+                <h4>🔑 Key Parameter - Shape (α):</h4>
+                <ul>
+                    <li><strong>α < 1:</strong> Decreasing failure rate (infant mortality - early failures)</li>
+                    <li><strong>α = 1:</strong> Constant failure rate (exponential case)</li>
+                    <li><strong>α > 1:</strong> Increasing failure rate (wear-out - failures increase with time)</li>
+                </ul>
+
+                <h4>❌ When NOT to Use It:</h4>
+                <ul>
+                    <li>Don't use for simple arrivals (use Poisson/Exponential instead)</li>
+                    <li>Don't use when aging effects are negligible</li>
+                </ul>
+
+                <h4>🔍 Real-World Example:</h4>
+                <p><strong>Scenario:</strong> Electronic component lifetime follows Weibull distribution with:</p>
+                <ul>
+                    <li>Shape parameter: α = 2.5 (wear-out mode)</li>
+                    <li>Scale parameter: β = 5000 hours</li>
+                </ul>
+                <p><strong>Question:</strong> What's probability component fails before 3000 hours?</p>
+                
+                <div class="explanation-box">
+                    <h4>📊 Solution:</h4>
+                    <div class="explanation-item">
+                        <div class="term">Step 1: Recognize Weibull problem</div>
+                        <div class="meaning">✓ Reliability/failure time analysis</div>
+                        <div class="meaning">✓ α > 1 (wear-out scenario)</div>
+                    </div>
+                    <div class="explanation-item">
+                        <div class="term">Step 2: Use CDF formula</div>
+                        <div class="meaning">F(3000) = 1 − e<sup>−(3000/5000)<sup>2.5</sup></sup></div>
+                        <div class="meaning">= 1 − e<sup>−(0.6)<sup>2.5</sup></sup></div>
+                        <div class="meaning">= 1 − e<sup>−0.262</sup> ≈ <strong>0.231</strong></div>
+                    </div>
+                    <div class="explanation-item">
+                        <div class="term">✅ Answer</div>
+                        <div class="meaning"><strong>23.1% probability</strong> component fails before 3000 hours</div>
+                    </div>
+                </div>
+
+                <h4>📚 Related Concepts:</h4>
+                <ul>
+                    <li>Special case: Exponential (α = 1)</li>
+                    <li>Gamma Distribution relationship</li>
+                    <li>Reliability engineering (Chapter 6)</li>
+                </ul>
+            </div>
+
+            <h3>6️⃣ BINOMIAL DISTRIBUTION FORMULA</h3>
+            
+            <div class="distribution-card">
+                <h4>📍 From: Chapter 5, Section 5.2</h4>
+                <p><strong>The Formula:</strong> P(X = x) = C(n,x) × p<sup>x</sup> × (1−p)<sup>(n−x)</sup></p>
+                <p><strong>Where:</strong> Mean = np, Variance = np(1−p)</p>
+                
+                <h4>✅ When to Use It:</h4>
+                <ul>
+                    <li><strong>Fixed number of trials</strong> (n fixed in advance)</li>
+                    <li><strong>Two outcomes per trial</strong> (success/failure, yes/no)</li>
+                    <li><strong>Independent trials</strong> (one trial doesn't affect another)</li>
+                    <li><strong>Constant probability</strong> (p same for all trials)</li>
+                    <li>Quality control, surveys, product testing</li>
+                </ul>
+
+                <h4>❌ When NOT to Use It:</h4>
+                <ul>
+                    <li>Don't use if <strong>sampling without replacement</strong> (use Hypergeometric instead)</li>
+                    <li>Don't use for <strong>variable number of trials</strong> (use Negative Binomial)</li>
+                    <li>Don't use if <strong>probability changes</strong> between trials</li>
+                </ul>
+
+                <h4>🔍 Real-World Example:</h4>
+                <p><strong>Scenario:</strong> A manufacturing process produces 95% defect-free items (5% defective). A sample of 20 items is taken. What's probability exactly 2 items are defective?</p>
+                
+                <div class="explanation-box">
+                    <h4>📊 Solution:</h4>
+                    <div class="explanation-item">
+                        <div class="term">Step 1: Verify Binomial conditions</div>
+                        <div class="meaning">✓ Fixed n = 20 trials</div>
+                        <div class="meaning">✓ Two outcomes: defective (p = 0.05) or good (0.95)</div>
+                        <div class="meaning">✓ Independent items, constant p</div>
+                    </div>
+                    <div class="explanation-item">
+                        <div class="term">Step 2: Calculate C(20,2)</div>
+                        <div class="meaning">C(20,2) = 20!/(2!×18!) = <strong>190</strong></div>
+                    </div>
+                    <div class="explanation-item">
+                        <div class="term">Step 3: Apply formula</div>
+                        <div class="meaning">P(X = 2) = 190 × (0.05)<sup>2</sup> × (0.95)<sup>18</sup></div>
+                        <div class="meaning">= 190 × 0.0025 × 0.3585 ≈ <strong>0.189</strong></div>
+                    </div>
+                    <div class="explanation-item">
+                        <div class="term">✅ Answer</div>
+                        <div class="meaning"><strong>18.9% probability</strong> exactly 2 out of 20 are defective</div>
+                    </div>
+                </div>
+
+                <h4>📚 Related Concepts:</h4>
+                <ul>
+                    <li>Hypergeometric vs. Binomial (Chapter 5, Section 5.3)</li>
+                    <li>Normal Approximation to Binomial (Chapter 6, Section 6.5)</li>
+                    <li>Multinomial Distribution (Chapter 5, Section 5.2)</li>
+                </ul>
+            </div>
+
+            <h3>7️⃣ CONDITIONAL PROBABILITY FORMULA</h3>
+            
+            <div class="distribution-card">
+                <h4>📍 From: Chapter 2, Section 2.5</h4>
+                <p><strong>The Formula:</strong> P(A|B) = <span class="fraction"><span class="numerator">P(A ∩ B)</span><span class="denominator">P(B)</span></span></p>
+                <p><strong>Product Rule:</strong> P(A ∩ B) = P(A|B) × P(B)</p>
+                
+                <h4>✅ When to Use It:</h4>
+                <ul>
+                    <li><strong>Given that something happened</strong>, find probability of something else</li>
+                    <li><strong>Sequential events</strong> (first event affects probability of second)</li>
+                    <li><strong>Dependent events</strong> (probability changes based on prior information)</li>
+                    <li><strong>Risk assessment</strong> (probability given risk factors)</li>
+                </ul>
+
+                <h4>❌ When NOT to Use It:</h4>
+                <ul>
+                    <li><strong>Don't confuse</strong> P(A|B) with P(B|A) - they're different!</li>
+                    <li>Don't use for <strong>independent events</strong> where P(A|B) = P(A)</li>
+                </ul>
+
+                <h4>🔍 Real-World Example:</h4>
+                <p><strong>Scenario:</strong> Weather prediction with two connected events:</p>
+                <ul>
+                    <li>P(Rain tomorrow) = 0.3</li>
+                    <li>P(Traffic jam | Rain) = 0.8</li>
+                    <li>P(Traffic jam | No rain) = 0.1</li>
+                </ul>
+                <p><strong>Question:</strong> What's probability of both rain AND traffic jam?</p>
+                
+                <div class="explanation-box">
+                    <h4>📊 Solution:</h4>
+                    <div class="explanation-item">
+                        <div class="term">Step 1: Recognize Conditional Probability problem</div>
+                        <div class="meaning">✓ Two events connected (rain affects traffic)</div>
+                        <div class="meaning">✓ Given one event, find probability of outcome</div>
+                    </div>
+                    <div class="explanation-item">
+                        <div class="term">Step 2: Use Product Rule</div>
+                        <div class="meaning">P(Rain AND Traffic) = P(Traffic|Rain) × P(Rain)</div>
+                        <div class="meaning">= 0.8 × 0.3 = <strong>0.24</strong></div>
+                    </div>
+                    <div class="explanation-item">
+                        <div class="term">✅ Answer</div>
+                        <div class="meaning"><strong>24% probability</strong> of both rain and traffic jam</div>
+                    </div>
+                    <div class="explanation-item">
+                        <div class="term">📌 Insight</div>
+                        <div class="meaning">Traffic depends on rain, so we multiply conditional probability by base probability</div>
+                    </div>
+                </div>
+
+                <h4>📚 Related Concepts:</h4>
+                <ul>
+                    <li>Independence (Chapter 2, Section 2.5)</li>
+                    <li>Bayes' Theorem (Chapter 2, Section 2.7)</li>
+                    <li>Total Probability Law (Chapter 2)</li>
+                </ul>
+            </div>
+
+            <h3>8️⃣ EXPECTED VALUE & VARIANCE FORMULAS</h3>
+            
+            <div class="distribution-card">
+                <h4>📍 From: Chapter 4, Sections 4.1-4.2</h4>
+                <p><strong>The Formulas:</strong></p>
+                <p>E(X) = Σ[x × P(x)] for discrete</p>
+                <p>Var(X) = E(X²) − [E(X)]²</p>
+                <p>Linear Transformation: E(aX + b) = aE(X) + b, Var(aX + b) = a² × Var(X)</p>
+                
+                <h4>✅ When to Use It:</h4>
+                <ul>
+                    <li><strong>Finding average outcome</strong> (expected value)</li>
+                    <li><strong>Measuring spread/risk</strong> (variance)</li>
+                    <li><strong>Comparing investments</strong> (which has higher return, lower risk?)</li>
+                    <li><strong>Linear transformations</strong> (scaling, unit changes)</li>
+                    <li><strong>Decision making</strong> (choose option with highest expected value)</li>
+                </ul>
+
+                <h4>❌ When NOT to Use It:</h4>
+                <ul>
+                    <li>Don't forget <strong>Var(aX) = a² Var(X)</strong>, not a Var(X)</li>
+                    <li>Don't add variances of dependent variables</li>
+                </ul>
+
+                <h4>🔍 Real-World Example:</h4>
+                <p><strong>Scenario:</strong> Investment decision with uncertain returns.</p>
+                <p><strong>Stock A:</strong> Gain $100 with probability 0.6, Loss $50 with probability 0.4</p>
+                <p><strong>Question:</strong> Should you invest? Calculate expected value and risk.</p>
+                
+                <div class="explanation-box">
+                    <h4>📊 Solution:</h4>
+                    <div class="explanation-item">
+                        <div class="term">Step 1: Calculate E(X)</div>
+                        <div class="meaning">E(X) = 100(0.6) + (−50)(0.4) = 60 − 20 = <strong>$40 expected gain</strong></div>
+                    </div>
+                    <div class="explanation-item">
+                        <div class="term">Step 2: Calculate E(X²)</div>
+                        <div class="meaning">E(X²) = (100)²(0.6) + (−50)²(0.4) = 6000 + 1000 = <strong>7000</strong></div>
+                    </div>
+                    <div class="explanation-item">
+                        <div class="term">Step 3: Calculate Var(X)</div>
+                        <div class="meaning">Var(X) = 7000 − (40)² = 7000 − 1600 = <strong>5400</strong></div>
+                        <div class="meaning">SD(X) = √5400 ≈ <strong>$73.48 risk</strong></div>
+                    </div>
+                    <div class="explanation-item">
+                        <div class="term">✅ Answer</div>
+                        <div class="meaning">Expected gain: $40, Risk (std dev): $73.48</div>
+                        <div class="usage">High risk for moderate reward - depends on risk tolerance!</div>
+                    </div>
+                </div>
+
+                <h4>📚 Related Concepts:</h4>
+                <ul>
+                    <li>Linear Combinations (Chapter 4, Section 4.3)</li>
+                    <li>Chebyshev's Theorem (Chapter 4, Section 4.4)</li>
+                    <li>Properties of Expectation (Chapter 4)</li>
+                </ul>
+            </div>
+
+            <h3>9️⃣ LEAST SQUARES REGRESSION FORMULAS</h3>
+            
+            <div class="distribution-card">
+                <h4>📍 From: Chapter 11, Sections 11.2-11.3</h4>
+                <p><strong>The Formulas:</strong></p>
+                <p>b₁ = <span class="fraction"><span class="numerator">Σxy − n(x̄)(ȳ)</span><span class="denominator">Σx² − n(x̄)²</span></span>, b₀ = ȳ − b₁x̄, ŷ = b₀ + b₁x</p>
+                
+                <h4>✅ When to Use It:</h4>
+                <ul>
+                    <li><strong>Predicting one variable</strong> from another (continuous data)</li>
+                    <li><strong>Finding relationship</strong> between variables</li>
+                    <li><strong>Trend analysis</strong> (sales over time, growth patterns)</li>
+                    <li><strong>Cost estimation</strong> (predicting costs from units produced)</li>
+                    <li><strong>Scientific studies</strong> (relationship between measured variables)</li>
+                </ul>
+
+                <h4>❌ When NOT to Use It:</h4>
+                <ul>
+                    <li>Don't extrapolate far beyond data range (unreliable)</li>
+                    <li>Don't use for <strong>non-linear relationships</strong> without transformation</li>
+                    <li>Don't assume causation just because correlation exists</li>
+                </ul>
+
+                <h4>🔍 Real-World Example:</h4>
+                <p><strong>Scenario:</strong> Relationship between study hours and exam scores.</p>
+                <p><strong>Data:</strong> 5 students with study hours: 2, 4, 6, 8, 10 and scores: 50, 65, 75, 85, 95</p>
+                <p><strong>Question:</strong> Find regression equation and predict score for 7 hours study.</p>
+                
+                <div class="explanation-box">
+                    <h4>📊 Solution:</h4>
+                    <div class="explanation-item">
+                        <div class="term">Step 1: Calculate necessary sums</div>
+                        <div class="meaning">Σx = 30, Σy = 370, Σxy = 2440, Σx² = 220, n = 5</div>
+                        <div class="meaning">x̄ = 6, ȳ = 74</div>
+                    </div>
+                    <div class="explanation-item">
+                        <div class="term">Step 2: Calculate b₁</div>
+                        <div class="meaning">b₁ = [2440 − 5(6)(74)] / [220 − 5(36)]</div>
+                        <div class="meaning">= [2440 − 2220] / [220 − 180] = 220 / 40 = <strong>5.5</strong></div>
+                    </div>
+                    <div class="explanation-item">
+                        <div class="term">Step 3: Calculate b₀</div>
+                        <div class="meaning">b₀ = 74 − 5.5(6) = 74 − 33 = <strong>41</strong></div>
+                    </div>
+                    <div class="explanation-item">
+                        <div class="term">Step 4: Write regression equation</div>
+                        <div class="meaning"><strong>ŷ = 41 + 5.5x</strong></div>
+                    </div>
+                    <div class="explanation-item">
+                        <div class="term">Step 5: Prediction for 7 hours</div>
+                        <div class="meaning">ŷ = 41 + 5.5(7) = 41 + 38.5 = <strong>79.5 score</strong></div>
+                    </div>
+                    <div class="explanation-item">
+                        <div class="term">✅ Interpretation</div>
+                        <div class="meaning">Each additional study hour increases expected score by <strong>5.5 points</strong></div>
+                        <div class="usage">Base score (with 0 hours) would be 41</div>
+                    </div>
+                </div>
+
+                <h4>📚 Related Concepts:</h4>
+                <ul>
+                    <li>Sum of Squares decomposition (Chapter 11, Section 11.8)</li>
+                    <li>Residuals and error analysis (Chapter 11)</li>
+                    <li>Correlation (Chapter 11, Section 11.12)</li>
+                </ul>
+            </div>
+
+            <h2>🎯 Quick Reference: When to Use Which Formula</h2>
+            
+            <table>
+                <tr>
+                    <th>Problem Type</th>
+                    <th>Formula/Concept</th>
+                    <th>Chapter</th>
+                </tr>
+                <tr>
+                    <td>Continuous bell-shaped data</td>
+                    <td>Normal Distribution</td>
+                    <td>6.2</td>
+                </tr>
+                <tr>
+                    <td>Find cause given evidence</td>
+                    <td>Bayes' Theorem</td>
+                    <td>2.7</td>
+                </tr>
+                <tr>
+                    <td>Rare events per unit</td>
+                    <td>Poisson Distribution</td>
+                    <td>5.5</td>
+                </tr>
+                <tr>
+                    <td>Time between arrivals</td>
+                    <td>Exponential Distribution</td>
+                    <td>6.7</td>
+                </tr>
+                <tr>
+                    <td>Equipment lifetime</td>
+                    <td>Weibull Distribution</td>
+                    <td>6.11</td>
+                </tr>
+                <tr>
+                    <td>Fixed trials, 2 outcomes</td>
+                    <td>Binomial Distribution</td>
+                    <td>5.2</td>
+                </tr>
+                <tr>
+                    <td>Probability given condition</td>
+                    <td>Conditional Probability</td>
+                    <td>2.5</td>
+                </tr>
+                <tr>
+                    <td>Average & spread</td>
+                    <td>Expected Value & Variance</td>
+                    <td>4.1-4.2</td>
+                </tr>
+                <tr>
+                    <td>Predict from another variable</td>
+                    <td>Regression</td>
+                    <td>11.2-11.3</td>
+                </tr>
+            </table>
+
+            <h2>📌 Study Tips for This Section</h2>
+            
+            <div class="info">
+                <strong>How to use these explanations:</strong>
+                <ol>
+                    <li><strong>Read the example first</strong> - Understand the real-world application</li>
+                    <li><strong>Identify the scenario</strong> - Is it Poisson? Normal? Binomial?</li>
+                    <li><strong>Check the conditions</strong> - Make sure formula applies</li>
+                    <li><strong>Calculate step-by-step</strong> - Don't skip calculations</li>
+                    <li><strong>Interpret the answer</strong> - What does the number mean in context?</li>
+                    <li><strong>Compare with "when not to use"</strong> - Avoid common mistakes</li>
+                </ol>
+            </div>
+
+            <div class="success">
+                <p><strong>🎓 Key Takeaway:</strong> This section helps you understand not just HOW to use formulas, but WHEN and WHERE they apply in real life!</p>
+            </div>
+
+            <div class="footer">
+                <p>Master these 9 formulas and their contexts, and you'll ace your exam! 📚✨</p>
+            </div>
+        </div>
+
+    <div class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tabbuttons;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tabbuttons = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tabbuttons.length; i++) {
+                tabbuttons[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            if (evt) {
+                evt.currentTarget.classList.add("active");
+            }
+            window.scrollTo(0, 0);
+        }
+
+        function scrollToTop() {
+            document.documentElement.scrollTop = 0;
+        }
+
+        window.addEventListener('scroll', function() {
+            var backToTop = document.getElementById('backToTop');
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight') {
+                var buttons = document.getElementsByClassName('tab-button');
+                var activeButton = document.querySelector('.tab-button.active');
+                var index = Array.from(buttons).indexOf(activeButton);
+                if (index < buttons.length - 1) {
+                    buttons[index + 1].click();
+                }
+            } else if (event.key === 'ArrowLeft') {
+                var buttons = document.getElementsByClassName('tab-button');
+                var activeButton = document.querySelector('.tab-button.active');
+                var index = Array.from(buttons).indexOf(activeButton);
+                if (index > 0) {
+                    buttons[index - 1].click();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
